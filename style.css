@@ -367,3 +367,87 @@ body.dark-mode .site-footer {
     padding: 22px 18px;
   }
 }
+/* ======================
+   تصحيح شكل الموقع على الجوال
+   ====================== */
+@media (max-width: 768px) {
+
+  /* الهيدر */
+  .site-header {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .brand-subtitle {
+    font-size: 12px;
+  }
+
+  .nav-wrapper {
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* زر الوضع الليلي */
+  .theme-toggle {
+    padding: 6px 18px;
+    font-size: 13px;
+    border-radius: 999px;
+  }
+
+  /* روابط الصفحات */
+  .main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 10px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .nav-link.active {
+    /* نخليها أوضح بدون ما تكون ضخمة */
+    transform: none;
+  }
+
+  /* الهيرو (العنوان الأزرق الكبير) */
+  .hero {
+    padding: 40px 18px 32px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  /* الكروت / البطاقات الكبيرة */
+  .page-content,
+  .rating-card-full,
+  .info-card {
+    margin-inline: 12px;
+  }
+}
