@@ -2,107 +2,183 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <title>التصنيف يحميك | اعرف المحتوى المناسب لعمر طفلك</title>
-    <link rel="stylesheet" href="style.css" />
-
+    <title>التصنيف بحميك | المنصة التوعوية للتصنيف العمري</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- خط جميل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <style>
-        /* ======== إعدادات عامة لواجهة الصفحة الرئيسية فقط ======== */
-        body.home {
-            margin: 0;
-            font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #f5f8fb;
-            color: #0b2535;
+        :root {
+            --bg-main: #f5f8fc;
+            --bg-card: #ffffff;
+            --bg-hero-from: #00a2d6;
+            --bg-hero-to: #0082b4;
+            --text-main: #1f2933;
+            --text-muted: #5f6c80;
+            --primary: #00a2d6;
+            --primary-dark: #0082b4;
+            --accent: #ffc857;
+            --border-soft: #dde5f0;
+            --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.08);
         }
 
-        .home-wrapper {
-            width: min(1140px, 92vw);
-            margin: 0 auto;
+        body.dark {
+            --bg-main: #050816;
+            --bg-card: #0b1220;
+            --bg-hero-from: #020617;
+            --bg-hero-to: #020617;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --primary: #38bdf8;
+            --primary-dark: #0ea5e9;
+            --accent: #facc15;
+            --border-soft: #1f2937;
+            --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
         }
 
         a {
             text-decoration: none;
+            color: inherit;
         }
 
-        /* ======== شريط التصفح ======== */
-        .home-header {
+        .home-wrapper {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* ========== NAVBAR ========== */
+        header {
+            background: rgba(255, 255, 255, 0.86);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.06);
             position: sticky;
             top: 0;
             z-index: 50;
-            background: #ffffffee;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e1e7f0;
         }
 
-        .home-nav {
+        body.dark header {
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom-color: rgba(148, 163, 184, 0.15);
+        }
+
+        .nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 28px;
-            padding: 10px 0;
+            padding: 10px 16px;
         }
 
-        .home-logo {
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo {
             display: flex;
             align-items: center;
             gap: 8px;
             font-weight: 800;
-            color: #007eaa;
-            font-size: 20px;
+            font-size: 18px;
+            color: var(--primary-dark);
         }
 
-        .home-logo span {
-            font-size: 22px;
+        .logo span {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f97316, #fb7185);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
         }
 
-        .home-nav-links {
+        body.dark .logo span {
+            background: linear-gradient(135deg, #22c55e, #14b8a6);
+        }
+
+        .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
+            gap: 16px;
             font-size: 15px;
         }
 
-        .home-nav-links a {
-            color: #41556b;
-            padding-bottom: 3px;
-            border-bottom: 2px solid transparent;
+        .nav-links a {
+            padding: 6px 10px;
+            border-radius: 999px;
+            color: var(--text-muted);
             transition: 0.2s ease;
         }
 
-        .home-nav-links a:hover,
-        .home-nav-links a.is-active {
-            color: #007eaa;
-            border-color: #00c896;
+        .nav-links a:hover {
+            background: rgba(148, 163, 184, 0.15);
+            color: var(--text-main);
         }
 
-        /* ======== قسم الهيرو ======== */
+        .nav-links a.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .theme-toggle {
+            border-radius: 999px;
+            border: 1px solid var(--border-soft);
+            padding: 6px 10px;
+            font-size: 13px;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-toggle span {
+            font-size: 16px;
+        }
+
+        /* ========== HERO ========== */
         .home-hero {
-            background: linear-gradient(135deg, #00a2d6, #0082b4);
+            background: linear-gradient(135deg, var(--bg-hero-from), var(--bg-hero-to));
             color: #ffffff;
-            padding: 42px 0 64px;
+            padding: 55px 0 70px;
+            text-align: center;
         }
 
         .home-hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(3, 34, 51, 0.25);
-            padding: 6px 14px;
+            background: rgba(15, 23, 42, 0.15);
+            padding: 6px 16px;
             border-radius: 999px;
             font-size: 13px;
             margin-bottom: 18px;
         }
 
-        .home-hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-            gap: 40px;
-            align-items: center;
+        .home-hero-badge span {
+            font-size: 15px;
         }
 
         .home-hero-title {
-            font-size: clamp(26px, 3vw + 12px, 34px);
-            line-height: 1.5;
-            margin: 0 0 12px;
+            font-size: clamp(30px, 3vw + 20px, 40px);
+            line-height: 1.6;
+            margin: 0 0 10px;
             font-weight: 800;
         }
 
@@ -111,416 +187,308 @@
         }
 
         .home-hero-text {
-            font-size: 16px;
+            font-size: 17px;
             line-height: 1.9;
-            max-width: 520px;
-            margin-bottom: 22px;
+            max-width: 640px;
+            margin: 0 auto 24px;
         }
 
         .home-hero-actions {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .btn-primary,
         .btn-outline,
         .btn-ghost {
             border-radius: 999px;
-            padding: 10px 18px;
-            font-size: 14px;
-            font-weight: 600;
+            padding: 10px 20px;
+            font-size: 15px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            cursor: pointer;
+            gap: 8px;
             border: 1px solid transparent;
+            cursor: pointer;
             transition: 0.2s ease;
             white-space: nowrap;
         }
 
         .btn-primary {
-            background: #00c896;
-            border-color: #00c896;
-            color: #053040;
+            background: #22c55e;
+            border-color: #16a34a;
+            color: #ffffff;
+            box-shadow: 0 14px 30px rgba(22, 163, 74, 0.35);
         }
 
         .btn-primary:hover {
-            background: #00b184;
+            background: #16a34a;
         }
 
         .btn-outline {
             background: transparent;
-            border-color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.7);
             color: #ffffff;
         }
 
         .btn-outline:hover {
-            background: #ffffff;
-            color: #006485;
+            background: rgba(15, 23, 42, 0.15);
         }
 
         .btn-ghost {
-            background: transparent;
-            color: #e0f7ff;
-            padding-inline: 10px;
-            font-weight: 500;
+            background: rgba(15, 23, 42, 0.18);
+            color: #e5e7eb;
         }
 
-        .btn-ghost span {
-            font-size: 18px;
+        .btn-ghost:hover {
+            background: rgba(15, 23, 42, 0.28);
         }
 
-        /* بطاقة مثال استشارة */
-        .home-example-card {
-            background: #ffffff;
-            color: #123047;
-            border-radius: 18px;
-            padding: 22px 22px 18px;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-            max-width: 380px;
-            margin-inline-start: auto;
+        /* ========== CARDS SECTION ========== */
+        .home-section {
+            padding: 45px 0 70px;
         }
 
-        .home-example-label {
-            font-size: 13px;
-            color: #7988a0;
-            margin-bottom: 10px;
-        }
-
-        .home-example-question {
-            background: #f3f7ff;
-            border-radius: 12px;
-            padding: 8px 10px;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .home-example-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: #e7f4ff;
-            color: #18699e;
-            margin-bottom: 8px;
-        }
-
-        .home-example-rating {
-            font-weight: 800;
-            font-size: 15px;
-            color: #0b4470;
-            margin-bottom: 4px;
-        }
-
-        .home-example-note {
-            font-size: 13px;
-            color: #62728a;
-            line-height: 1.7;
-        }
-
-        /* ======== قسم البطاقات الرئيسية ======== */
-        .home-sections {
-            padding: 36px 0 32px;
-        }
-
-        .home-section-grid {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
+            gap: 18px;
         }
 
-        .home-card {
-            background: #ffffff;
-            border-radius: 18px;
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-hero {
+                padding: 40px 0 55px;
+            }
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 20px;
             padding: 20px 20px 18px;
-            box-shadow: 0 8px 22px rgba(6, 34, 59, 0.05);
-            border: 1px solid #e2e8f1;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-soft);
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .home-card-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 12px;
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            background: #e7f6ff;
-            color: #0e6a97;
+            font-size: 22px;
         }
 
-        .home-card-title {
-            font-size: 18px;
+        .card-icon.green {
+            background: rgba(34, 197, 94, 0.08);
+            color: #16a34a;
+        }
+
+        .card-icon.blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+        }
+
+        .card-icon.purple {
+            background: rgba(168, 85, 247, 0.1);
+            color: #7c3aed;
+        }
+
+        body.dark .card-icon.green {
+            background: rgba(34, 197, 94, 0.15);
+        }
+
+        body.dark .card-icon.blue {
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        body.dark .card-icon.purple {
+            background: rgba(168, 85, 247, 0.25);
+        }
+
+        .card-title {
             font-weight: 700;
+            font-size: 17px;
         }
 
-        .home-card-text {
+        .card-text {
             font-size: 14px;
-            line-height: 1.9;
-            color: #4b5c73;
+            color: var(--text-muted);
+            line-height: 1.8;
         }
 
-        .home-card-link {
-            margin-top: auto;
+        .card-link {
+            margin-top: 4px;
             font-size: 14px;
-            color: #007eaa;
+            color: var(--primary-dark);
             display: inline-flex;
             align-items: center;
             gap: 4px;
         }
 
-        .home-card-link span {
-            font-size: 16px;
-        }
-
-        /* ======== عن الحملة ======== */
-        .home-about {
-            padding: 8px 0 48px;
-        }
-
-        .home-about-box {
-            background: #ffffff;
-            border-radius: 18px;
-            border: 1px solid #dde5f0;
-            padding: 24px 22px 20px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-        }
-
-        .home-about-title {
-            font-size: 17px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #0f3d63;
-        }
-
-        .home-about-title span {
+        .card-link span {
             font-size: 18px;
-            color: #00c896;
-        }
-
-        .home-about-text {
-            font-size: 14px;
-            line-height: 1.9;
-            color: #4b5c73;
-            margin-bottom: 8px;
-        }
-
-        .home-about-list {
-            font-size: 14px;
-            line-height: 1.9;
-            color: #4b5c73;
-            padding-right: 18px;
-        }
-
-        .home-about-note {
-            font-size: 12px;
-            color: #8b97aa;
-            margin-top: 10px;
-        }
-
-        /* ======== فوتر بسيط ======== */
-        .home-footer {
-            padding: 14px 0 20px;
-            font-size: 12px;
-            color: #7b8797;
-            text-align: center;
-        }
-
-        /* ======== موبايل ======== */
-        @media (max-width: 900px) {
-            .home-nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .home-hero {
-                padding: 30px 0 40px;
-            }
-
-            .home-hero-grid {
-                grid-template-columns: 1fr;
-                gap: 26px;
-            }
-
-            .home-example-card {
-                margin-inline-start: 0;
-            }
-
-            .home-section-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
-<body class="home">
-
-    <!-- ========== الهيدر ========== -->
-    <header class="home-header">
-        <div class="home-wrapper home-nav">
-            <a href="index.html" class="home-logo">
-                <span>🎮</span>
-                <div>التصنيف يحميك</div>
-            </a>
-
-            <nav class="home-nav-links">
-                <a href="index.html" class="is-active">الرئيسية</a>
-                <a href="games.html">تصنيف الألعاب</a>
-                <a href="movies.html">تصنيف الأفلام</a>
-                <a href="check.html">أداة التحقق</a>
-                <a href="parents.html">دليل الوالدين</a>
-                <a href="blog.html">المدونة</a>
-                <!-- عدلي الروابط حسب أسماء ملفاتك -->
-                <a href="stories.html">القصص الواقعية</a>
-                <a href="chat.html">شات التصنيف الذكي</a>
-            </nav>
+<body>
+    <!-- ========== NAVBAR ========== -->
+    <header>
+        <div class="home-wrapper nav">
+            <div class="nav-right">
+                <a href="index.html" class="logo">
+                    <span>🎮</span>
+                    <div>التصنيف بحميك</div>
+                </a>
+                <nav class="nav-links">
+                    <a href="index.html" class="active">الرئيسية</a>
+                    <a href="games.html">تصنيف الألعاب</a>
+                    <a href="movies.html">تصنيف الأفلام</a>
+                    <a href="check.html">أداة التحقق</a>
+                    <a href="parents.html">دليل الوالدين</a>
+                    <a href="stories.html">القصص الواقعية</a>
+                    <a href="blog.html">المدونة</a>
+                    <a href="chat.html">شات التصنيف الذكي</a>
+                </nav>
+            </div>
+            <div class="nav-left">
+                <button id="themeToggle" class="theme-toggle" type="button">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeLabel">الوضع الليلي</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="home-main">
-        <!-- ========== قسم الهيرو ========== -->
-        <section class="home-hero">
-            <div class="home-wrapper">
-                <div class="home-hero-badge">
-                    <span>📢</span> منصة توعوية – ليست جهة رسمية
-                </div>
-
-                <div class="home-hero-grid">
-                    <!-- نص اليمين -->
-                    <div>
-                        <h1 class="home-hero-title">
-                            اعرف المحتوى المناسب لعمر طفلك...
-                            <span>قبل ما تسمح له يشاهده أو يلعبه.</span>
-                        </h1>
-                        <p class="home-hero-text">
-                            نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي
-                            بلغة بسيطة، عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
-                        </p>
-
-                        <div class="home-hero-actions">
-                            <a href="check.html" class="btn-primary">
-                                ✅ تحقّق من تصنيف لعبة / فيلم
-                            </a>
-                            <a href="games.html" class="btn-outline">
-                                🎯 تعرّف على رموز التصنيف
-                            </a>
-                            <a href="chat.html" class="btn-ghost">
-                                <span>💬</span> اسأل شات التصنيف الذكي
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- بطاقة مثال استشارة -->
-                    <aside class="home-example-card">
-                        <div class="home-example-label">
-                            مثال على استشارة في شات التصنيف الذكي:
-                        </div>
-                        <div class="home-example-question">
-                            "فورتنايت تناسب ابني عمره ٩ سنوات؟"
-                        </div>
-                        <div class="home-example-tag">
-                            <span>🔍</span> تصنيف علمي إرشادي
-                        </div>
-                        <div class="home-example-rating">
-                            PEGI 12 / ESRB Teen
-                        </div>
-                        <p class="home-example-note">
-                            غالبًا يُنصح أن يكون اللاعب أكبر من ١٢ سنة، بسبب وجود عنف
-                            متوسط وإطلاق نار وتفاعل مع لاعبين آخرين. تقدري تبحثي عن بدائل
-                            بتصنيف أقل تناسب عمر طفلك وقيم عائلتك.
-                        </p>
-                    </aside>
-                </div>
+    <!-- ========== HERO ========== -->
+    <section class="home-hero">
+        <div class="home-wrapper">
+            <div class="home-hero-badge">
+                <span>📢</span> منصة توعوية – ليست جهة رسمية
             </div>
-        </section>
 
-        <!-- ========== البطاقات الرئيسية ========== -->
-        <section class="home-sections">
-            <div class="home-wrapper home-section-grid">
-                <!-- بطاقة القصص -->
-                <article class="home-card">
-                    <div class="home-card-icon">📚</div>
-                    <h2 class="home-card-title">قصص حقيقية وشات ذكي</h2>
-                    <p class="home-card-text">
-                        اقرأ مواقف واقعية من أهالي واجهوا محتوى غير مناسب، وشوفي كيف ساعدهم
-                        شات التصنيف الذكي على اتخاذ قرار يناسب أطفالهم.
+            <h1 class="home-hero-title">
+                اعرف المحتوى المناسب لعمر طفلك...
+                <span>قبل ما تسمح له يشاهده أو يلعبه.</span>
+            </h1>
+
+            <p class="home-hero-text">
+                نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي
+                بلغة بسيطة وواضحة، عشان تكون قراراتك أقرب لقيم عائلتك وأمان أطفالك.
+            </p>
+
+            <div class="home-hero-actions">
+                <a href="check.html" class="btn-primary">
+                    ✅ تحقّق من تصنيف لعبة / فيلم
+                </a>
+                <a href="games.html" class="btn-outline">
+                    🎯 تعرّف على رموز التصنيف
+                </a>
+                <a href="chat.html" class="btn-ghost">
+                    💬 اسأل شات التصنيف الذكي
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CARDS ========== -->
+    <section class="home-section">
+        <div class="home-wrapper">
+            <div class="cards-grid">
+                <!-- بطاقة 1: التحقق السريع -->
+                <article class="card">
+                    <div class="card-header">
+                        <div class="card-icon green">✅</div>
+                        <div class="card-title">تحقّق من التصنيف في ثواني</div>
+                    </div>
+                    <p class="card-text">
+                        أدخل اسم اللعبة أو الفيلم في أداة التحقق، وخذ ملخّص سريع
+                        عن التصنيف والفئات العمرية والمحتوى البارز، قبل ما تسمح
+                        لابنك بالمشاهدة أو اللعب.
                     </p>
-                    <a href="stories.html" class="home-card-link">
-                        الذهاب إلى القصص والشات <span>↗</span>
+                    <a href="check.html" class="card-link">
+                        الانتقال إلى أداة التحقق <span>↗</span>
                     </a>
                 </article>
 
-                <!-- بطاقة فهم الرموز -->
-                <article class="home-card">
-                    <div class="home-card-icon">🎮</div>
-                    <h2 class="home-card-title">فهم الرموز والفئات العمرية</h2>
-                    <p class="home-card-text">
-                        صفحات تصنيف الألعاب والأفلام تشرح لك معنى (+3، +7، +12، Teen،
-                        +16...) مع أمثلة مبسّطة تساعدك تفرّق بين كل فئة وتعرف مستوى المحتوى.
+                <!-- بطاقة 2: فهم الرموز -->
+                <article class="card">
+                    <div class="card-header">
+                        <div class="card-icon blue">🎮</div>
+                        <div class="card-title">فهم الرموز والفئات العمرية</div>
+                    </div>
+                    <p class="card-text">
+                        صفحات تصنيف الألعاب والأفلام تشرح لك معنى (+3، +7، Teen...)
+                        مع أمثلة مبسّطة تساعدك تفرق بين أنواع المحتوى، وتختار
+                        الأنسب لعمر وحساسية طفلك.
                     </p>
-                    <a href="games.html" class="home-card-link">
+                    <a href="games.html" class="card-link">
                         استكشاف تصنيف الألعاب والأفلام <span>↗</span>
                     </a>
                 </article>
 
-                <!-- بطاقة أداة التحقق -->
-                <article class="home-card">
-                    <div class="home-card-icon">✅</div>
-                    <h2 class="home-card-title">تحقّق من التصنيف في ثواني</h2>
-                    <p class="home-card-text">
-                        أدخل اسم اللعبة أو الفيلم في أداة التحقق، وخذ ملخّص سريع عن التصنيف
-                        والمحتوى البارز قبل ما تسمح لطفلك يشاهده أو يلعبه.
+                <!-- بطاقة 3: قصص واقعية وشات ذكي -->
+                <article class="card">
+                    <div class="card-header">
+                        <div class="card-icon purple">📚</div>
+                        <div class="card-title">قصص حقيقية وشات ذكي</div>
+                    </div>
+                    <p class="card-text">
+                        اقرأ مواقف واقعية من أهالي واجهوا محتوى غير مناسب،
+                        واستفادوا من التصنيف العمري، واستخدم شات التصنيف الذكي
+                        لتحصل على إجابة مخصّصة لحالة عائلتك.
                     </p>
-                    <a href="check.html" class="home-card-link">
-                        الانتقال إلى أداة التحقق <span>↗</span>
+                    <a href="stories.html" class="card-link">
+                        الذهاب إلى القصص والشات <span>↗</span>
                     </a>
                 </article>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ========== عن حملة التصنيف يحميك ========== -->
-        <section class="home-about">
-            <div class="home-wrapper">
-                <div class="home-about-box">
-                    <h2 class="home-about-title">
-                        <span>🛡️</span> عن حملة «التصنيف يحميك»
-                    </h2>
-                    <p class="home-about-text">
-                        «التصنيف يحميك» مبادرة توعوية شخصية لمساعدة الأهالي، والمربين،
-                        والمهتمين على فهم الرموز والفئات العمرية للمحتوى الترفيهي،
-                        خصوصًا الألعاب الإلكترونية والأفلام والمسلسلات، بطريقة قريبة من
-                        الواقع السعودي وسهلة الفهم.
-                    </p>
-                    <ul class="home-about-list">
-                        <li><strong>هدف الحملة:</strong> جعل قرار السماح بالمشاهدة أو اللعب
-                            قرار واعٍ، مبني على فهم التصنيف وليس على اسم اللعبة أو شهرتها.</li>
-                        <li><strong>لمن؟</strong> للأهالي، المربين، المرشدين الطلابيين،
-                            وكل من يهتم بسلامة الأطفال رقميًا.</li>
-                        <li><strong>كيف أستخدم الموقع؟</strong> ابدأ من الصفحة الرئيسية، ثم
-                            جرّب أداة التحقق، وصفحات التصنيف، والقصص الواقعية، وشات الذكاء
-                            الاصطناعي اللي يعطيك إجابات مخصّصة لحالتك.</li>
-                    </ul>
-                    <p class="home-about-note">
-                        * الموقع ليس جهة رسمية ولا يصدر تصنيفات جديدة، لكنه يستند قدر
-                        الإمكان إلى أنظمة التصنيف المعروفة محليًا وعالميًا مثل GCAM، PEGI،
-                        ESRB، ويعرضها بلغة مبسّطة للأهالي.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <script>
+        // تفعيل الوضع الليلي
+        const toggleBtn = document.getElementById("themeToggle");
+        const iconSpan = document.getElementById("themeIcon");
+        const labelSpan = document.getElementById("themeLabel");
 
-    <footer class="home-footer">
-        © 2025 التصنيف يحميك – نسخة تجريبية توعوية.
-    </footer>
+        // لو المتصفح يحب الوضع الداكن – نبدأ به
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.body.classList.add("dark");
+            iconSpan.textContent = "☀️";
+            labelSpan.textContent = "الوضع الفاتح";
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            const isDark = document.body.classList.toggle("dark");
+            if (isDark) {
+                iconSpan.textContent = "☀️";
+                labelSpan.textContent = "الوضع الفاتح";
+            } else {
+                iconSpan.textContent = "🌙";
+                labelSpan.textContent = "الوضع الليلي";
+            }
+        });
+    </script>
 </body>
 </html>
