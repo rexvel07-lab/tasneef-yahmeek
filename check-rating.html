@@ -98,36 +98,42 @@
 <body>
 
 <header class="site-header">
-    <div class="brand">
-        <div class="brand-icon">🎮</div>
-        <div class="brand-text">
-            <div class="brand-title">التصنيف بحميك</div>
-            <div class="brand-subtitle">منصة توعوية غير رسمية</div>
+    <div class="nav-container">
+      <!-- الشعار -->
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          🎮
         </div>
-    </div>
+        <div class="brand-text">
+          <div class="brand-title">التصنيف يحميك</div>
+          <div class="brand-tagline">منصة توعوية غير رسمية</div>
+        </div>
+      </a>
 
-    <div class="nav-wrapper">
-        <!-- زر الوضع الليلي -->
-        <button id="themeToggle" class="theme-toggle">
-            <span class="theme-toggle-icon">🌙</span>
-            <span class="theme-toggle-text">الوضع الليلي</span>
+      <!-- زر المنيو (يظهر في الموبايل) -->
+      <button class="nav-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- الروابط -->
+      <nav class="nav-links" id="mainNav">
+        <a href="index.html" class="nav-link">الرئيسية</a>
+        <a href="games.html" class="nav-link">تصنيف الألعاب</a>
+        <a href="movies.html" class="nav-link">تصنيف الأفلام</a>
+        <a href="check-rating.html" class="nav-link current-link">أداة التحقق</a>
+        <a href="parents.html" class="nav-link">دليل الوالدين</a>
+        <a href="stories.html" class="nav-link">القصص الواقعية</a>
+        <a href="blog.html" class="nav-link">المدونة</a>
+
+        <button class="mode-toggle" type="button" id="modeToggle">
+          <span class="mode-label">الوضع الليلي</span>
+          <span class="mode-icon">🌙</span>
         </button>
-
-        <!-- القائمة الرئيسية -->
-        <nav class="main-nav">
-            <!-- غيّري class="active" حسب الصفحة -->
-            <a href="index.html"  class="nav-link">الرئيسية</a>
-            <a href="games.html"  class="nav-link">تصنيف الألعاب</a>
-            <a href="movies.html" class="nav-link">تصنيف الأفلام</a>
-            <a href="check-rating.html"  class="nav-link active">أداة التحقق</a>
-            <a href="parents.html"class="nav-link">دليل الوالدين</a>
-            <a href="blog.html"   class="nav-link">المدونة</a>
-            <a href="stories.html"    class="nav-link">القصص الواقعية</a>
-            <!-- لو عندك صفحة شات حطيها هنا -->
-            <!-- <a href="chat.html" class="nav-link">شات التصنيف الذكي</a> -->
-        </nav>
+      </nav>
     </div>
-</header>
+  </header>
 
 
 

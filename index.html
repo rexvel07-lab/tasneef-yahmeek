@@ -1,123 +1,143 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <title>التصنيف بحميك | الرئيسية</title>
-    <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>التصنيف يحميك | الرئيسية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="light-mode">
-    <!-- شريط علوي: شعار + تبديل الوضع -->
-    <header class="site-header">
-        <div class="brand">
-            <div class="brand-icon">🎮</div>
-            <div class="brand-text">
-                <div class="brand-title">التصنيف بحميك</div>
-                <div class="brand-subtitle">منصة توعوية غير رسمية</div>
-            </div>
+<body class="theme-light">
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="nav-container">
+      <!-- الشعار -->
+      <a href="index.html" class="brand">
+        <div class="brand-icon">
+          🎮
         </div>
-
-        <div class="nav-wrapper">
-            <!-- زر الوضع الليلي -->
-            <button id="themeToggle" class="theme-toggle">
-                <span class="theme-toggle-icon">🌙</span>
-                <span class="theme-toggle-text">الوضع الليلي</span>
-            </button>
-
-            <!-- القائمة الرئيسية -->
-            <nav class="main-nav">
-                <!-- عدّلي href لو أسماء ملفاتك مختلفة -->
-                <a href="index.html" class="nav-link active">الرئيسية</a>
-                <a href="games.html" class="nav-link">تصنيف الألعاب</a>
-                <a href="movies.html" class="nav-link">تصنيف الأفلام</a>
-                <a href="check-rating.html" class="nav-link">أداة التحقق</a>
-                <a href="parents.html" class="nav-link">دليل الوالدين</a>
-                <a href="blog.html" class="nav-link">المدونة</a>
-                <a href="stories.html" class="nav-link">القصص الواقعية</a>
-                <!-- لو عندك صفحة لشات التصنيف -->
-                <!-- <a href="chat.html" class="nav-link">شات التصنيف الذكي</a> -->
-            </nav>
+        <div class="brand-text">
+          <div class="brand-title">التصنيف يحميك</div>
+          <div class="brand-tagline">منصة توعوية غير رسمية</div>
         </div>
-    </header>
+      </a>
 
-    <!-- هيرو الصفحة -->
+      <!-- زر المنيو (يظهر في الموبايل) -->
+      <button class="nav-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- الروابط -->
+      <nav class="nav-links" id="mainNav">
+        <a href="index.html" class="nav-link current-link">الرئيسية</a>
+        <a href="games.html" class="nav-link">تصنيف الألعاب</a>
+        <a href="movies.html" class="nav-link">تصنيف الأفلام</a>
+        <a href="check-rating.html" class="nav-link">أداة التحقق</a>
+        <a href="parents.html" class="nav-link">دليل الوالدين</a>
+        <a href="stories.html" class="nav-link">القصص الواقعية</a>
+        <a href="blog.html" class="nav-link">المدونة</a>
+
+        <button class="mode-toggle" type="button" id="modeToggle">
+          <span class="mode-label">الوضع الليلي</span>
+          <span class="mode-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <main>
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">منصة توعوية – ليست جهة رسمية</div>
+      <div class="hero-inner">
+        <span class="hero-badge">منصة توعوية – ليست جهة رسمية 🎮</span>
 
-            <h1 class="hero-title">
-                اعرف المحتوى المناسب لعمر طفلك…<br />
-                قبل ما تسمح له يشاهده أو يلعبه.
-            </h1>
+        <h1 class="hero-title">
+          اعرف المحتوى المناسب لعمر طفلك...<br />
+          قبل ما تسمح له يشاهده أو يلعبه.
+        </h1>
 
-            <p class="hero-subtitle">
-                نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي بلغة بسيطة،
-                عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
-            </p>
+        <p class="hero-text">
+          نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي بلغة بسيطة،
+          عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
+        </p>
 
-            <div class="hero-actions">
-                <a href="check.html" class="btn btn-primary">
-                    تحقق من تصنيف لعبة / فيلم
-                </a>
-                <a href="games.html" class="btn btn-ghost">
-                    تعرّف على رموز التصنيف
-                </a>
-            </div>
+        <div class="hero-actions">
+          <a href="checker.html" class="btn btn-primary">
+            ✅ تحقّق من تصنيف لعبة / فيلم
+          </a>
+          <a href="games.html" class="btn btn-ghost">
+            🔍 تعرّف على رموز التصنيف
+          </a>
         </div>
+      </div>
     </section>
 
-    <!-- تعريف مختصر بالموقع -->
-    <section class="intro-section">
-        <div class="intro-card">
-            <h2 class="section-title">ليش وُجد موقع «التصنيف بحميك»؟</h2>
-            <p class="section-text">
-                الموقع يساعد الأهل، والمعلمين، وكل شخص يهتم بالأطفال في فهم التصنيف العمري للمحتوى
-                الترفيهي. الفكرة بسيطة: مكان واحد تلاقي فيه شرح الرموز، أمثلة من الواقع، وأدوات سريعة
-                تساعدك تقرر إذا اللعبة أو الفيلم مناسب لعمر طفلك وحساسيته أو لا.
-            </p>
-            <div class="intro-points">
-                <span>✔ توضيح الرموز والفئات العمرية</span>
-                <span>✔ أمثلة واقعية وقصص من أهل واجهوا مواقف مشابهة</span>
-                <span>✔ أداة تحقق سريعة قبل ما تضغط زر «تحميل» أو «تشغيل»</span>
-            </div>
-        </div>
+    <!-- تعريف قصير بالموقع تحت الهيرو -->
+    <section class="about-strip">
+      <div class="about-inner">
+        <h2>ما هو هدف منصة «التصنيف يحميك»؟</h2>
+        <p>
+          نسهّل على الأهل فهم التصنيف العمري، ونجمّع أهم الأدوات في مكان واحد:
+          صفحات التصنيف، أداة التحقق، القصص الواقعية، والمدونة التوعوية… عشان
+          تقدر تختار لطفلك محتوى آمن ومناسب لعمره.
+        </p>
+      </div>
     </section>
+  </main>
 
-    <!-- كيف أستخدم الموقع بسرعة؟ -->
-    <section class="how-section">
-        <h2 class="section-title center">كيف تستخدم الموقع خلال دقايق؟</h2>
-        <div class="how-grid">
-            <div class="how-item">
-                <div class="how-number">1</div>
-                <h3>حدّد نوع المحتوى</h3>
-                <p>اختر إذا كان اللي تبي تراجعه لعبة، فيلم، مسلسل، أو تطبيق.</p>
-            </div>
-            <div class="how-item">
-                <div class="how-number">2</div>
-                <h3>ابحث عن التصنيف</h3>
-                <p>من صفحة الألعاب أو الأفلام أو أداة التحقق، دوّر على التصنيف والرموز.</p>
-            </div>
-            <div class="how-item">
-                <div class="how-number">3</div>
-                <h3>قرّر بهدوء</h3>
-                <p>قارن بين عمر طفلك، حساسيته، والشرح الموجود، وبعدين خذ قرارك.</p>
-            </div>
-        </div>
-    </section>
+  <!-- ========== FOOTER بسيط ========== -->
+  <footer class="site-footer">
+    <p>© 2025 التصنيف يحميك – مشروع توعوي غير ربحي.</p>
+  </footer>
 
-    <footer class="site-footer">
-        <p>الموقع للاستخدام التوعوي فقط، ويقترح دائمًا الرجوع للمصادر الرسمية مثل GCAM, PEGI, ESRB.</p>
-    </footer>
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // زر المنيو في الموبايل
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("mainNav");
 
-    <script>
-        // تبديل الوضع الليلي
-        const toggleBtn = document.getElementById("themeToggle");
-        const body = document.body;
+    navToggle.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("nav-open");
+      navToggle.classList.toggle("nav-open", isOpen);
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
 
-        toggleBtn.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-            body.classList.toggle("light-mode");
-        });
-    </script>
+    // إغلاق المنيو بعد الضغط على أي رابط في الموبايل
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (nav.classList.contains("nav-open")) {
+          nav.classList.remove("nav-open");
+          navToggle.classList.remove("nav-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    // تبديل الوضع الليلي / النهاري
+    const modeToggle = document.getElementById("modeToggle");
+    const body = document.body;
+
+    function setTheme(theme) {
+      body.classList.remove("theme-light", "theme-dark");
+      body.classList.add(theme);
+      localStorage.setItem("tasneef-theme", theme);
+      const isDark = theme === "theme-dark";
+      modeToggle.querySelector(".mode-label").textContent = isDark
+        ? "الوضع النهاري"
+        : "الوضع الليلي";
+      modeToggle.querySelector(".mode-icon").textContent = isDark ? "☀️" : "🌙";
+    }
+
+    // تحميل الثيم من التخزين
+    const savedTheme = localStorage.getItem("tasneef-theme") || "theme-light";
+    setTheme(savedTheme);
+
+    modeToggle.addEventListener("click", () => {
+      const nextTheme =
+        body.classList.contains("theme-dark") ? "theme-light" : "theme-dark";
+      setTheme(nextTheme);
+    });
+  </script>
 </body>
 </html>
