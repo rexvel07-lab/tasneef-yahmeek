@@ -91,19 +91,33 @@
 <body>
 
 <header class="site-header">
-    <div class="nav-container">
-        <div class="nav-logo">
-            التصنيف يحميك
+    <div class="brand">
+        <div class="brand-icon">🎮</div>
+        <div class="brand-text">
+            <div class="brand-title">التصنيف بحميك</div>
+            <div class="brand-subtitle">منصة توعوية غير رسمية</div>
         </div>
-        <nav class="nav-menu">
-            <a href="index.html">الرئيسية</a>
-            <a href="games.html">تصنيف الألعاب</a>
-            <a href="movies.html">تصنيف الأفلام</a>
-            <a href="check-rating.html">أداة التحقق</a>
-            <a href="parents.html">دليل الوالدين</a>
-            <a href="blog.html">المدونة</a>
-            <a href="stories.html">القصص الواقعية</a>
-            <a href="ai-chat.html">شات التصنيف الذكي</a>
+    </div>
+
+    <div class="nav-wrapper">
+        <!-- زر الوضع الليلي -->
+        <button id="themeToggle" class="theme-toggle">
+            <span class="theme-toggle-icon">🌙</span>
+            <span class="theme-toggle-text">الوضع الليلي</span>
+        </button>
+
+        <!-- القائمة الرئيسية -->
+        <nav class="main-nav">
+            <!-- غيّري class="active" حسب الصفحة -->
+            <a href="index.html"  class="nav-link">الرئيسية</a>
+            <a href="games.html"  class="nav-link">تصنيف الألعاب</a>
+            <a href="movies.html" class="nav-link">تصنيف الأفلام</a>
+            <a href="check-rating.html"  class="nav-link">أداة التحقق</a>
+            <a href="parents.html"class="nav-link">دليل الوالدين</a>
+            <a href="blog.html"   class="nav-link active">المدونة</a>
+            <a href="stories.html"    class="nav-link">القصص الواقعية</a>
+            <!-- لو عندك صفحة شات حطيها هنا -->
+            <!-- <a href="chat.html" class="nav-link">شات التصنيف الذكي</a> -->
         </nav>
     </div>
 </header>
