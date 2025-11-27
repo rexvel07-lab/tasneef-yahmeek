@@ -3,180 +3,121 @@
 <head>
     <meta charset="UTF-8" />
     <title>التصنيف بحميك | الرئيسية</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-
-<body data-page="home">
-    <!-- =========== شريط التنقل =========== -->
-    <header class="top-nav">
-        <div class="container nav-inner">
-            <!-- اللوغو -->
-            <div class="brand">
-                <span class="brand-icon">🎮</span>
-                <div class="brand-text">
-                    <span class="brand-title">التصنيف بحميك</span>
-                    <span class="brand-sub">منصة توعوية غير رسمية</span>
-                </div>
+<body class="light-mode">
+    <!-- شريط علوي: شعار + تبديل الوضع -->
+    <header class="site-header">
+        <div class="brand">
+            <div class="brand-icon">🎮</div>
+            <div class="brand-text">
+                <div class="brand-title">التصنيف بحميك</div>
+                <div class="brand-subtitle">منصة توعوية غير رسمية</div>
             </div>
+        </div>
 
-            <!-- القائمة -->
-            <nav class="navbar">
-                <ul>
-                    <li><a href="index.html" data-page="home">الرئيسية</a></li>
-                    <li><a href="games.html" data-page="games">تصنيف الألعاب</a></li>
-                    <li><a href="movies.html" data-page="movies">تصنيف الأفلام</a></li>
-                    <li><a href="checker.html" data-page="checker">أداة التحقق</a></li>
-                    <li><a href="parents.html" data-page="parents">دليل الوالدين</a></li>
-                    <li><a href="stories.html" data-page="stories">القصص الواقعية</a></li>
-                    <li><a href="blog.html" data-page="blog">المدونة</a></li>
-                    <li><a href="chat.html" data-page="chat">شات التصنيف الذكي</a></li>
-                </ul>
-            </nav>
-
+        <div class="nav-wrapper">
             <!-- زر الوضع الليلي -->
-            <button class="mode-toggle" id="modeToggle" type="button">
-                <span class="mode-label">الوضع الليلي</span>
-                <span class="mode-icon">🌙</span>
+            <button id="themeToggle" class="theme-toggle">
+                <span class="theme-toggle-icon">🌙</span>
+                <span class="theme-toggle-text">الوضع الليلي</span>
             </button>
+
+            <!-- القائمة الرئيسية -->
+            <nav class="main-nav">
+                <!-- عدّلي href لو أسماء ملفاتك مختلفة -->
+                <a href="index.html" class="nav-link active">الرئيسية</a>
+                <a href="games.html" class="nav-link">تصنيف الألعاب</a>
+                <a href="movies.html" class="nav-link">تصنيف الأفلام</a>
+                <a href="check.html" class="nav-link">أداة التحقق</a>
+                <a href="parents.html" class="nav-link">دليل الوالدين</a>
+                <a href="blog.html" class="nav-link">المدونة</a>
+                <a href="faq.html" class="nav-link">القصص الواقعية</a>
+                <!-- لو عندك صفحة لشات التصنيف -->
+                <!-- <a href="chat.html" class="nav-link">شات التصنيف الذكي</a> -->
+            </nav>
         </div>
     </header>
 
-    <!-- =========== المحتوى الرئيسي =========== -->
-    <main>
-        <!-- Hero -->
-        <section class="hero">
-            <div class="container hero-grid">
-                <!-- النص -->
-                <div class="hero-text">
-                    <p class="hero-chip">
-                        منصة توعوية <span>غير رسمية</span>
-                    </p>
+    <!-- هيرو الصفحة -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">منصة توعوية – ليست جهة رسمية</div>
 
-                    <h1 class="hero-title">
-                        اعرف المحتوى المناسب لعمر طفلك...
-                        <span>قبل ما تسمح له يشاهده أو يلعبه.</span>
-                    </h1>
+            <h1 class="hero-title">
+                اعرف المحتوى المناسب لعمر طفلك…<br />
+                قبل ما تسمح له يشاهده أو يلعبه.
+            </h1>
 
-                    <p class="hero-sub">
-                        نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي
-                        بلغة بسيطة، عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a href="checker.html" class="btn primary">
-                            تحقق من تصنيف لعبة / فيلم
-                        </a>
-                        <a href="games.html" class="btn ghost">
-                            تعرّف على رموز التصنيف
-                        </a>
-                    </div>
-                </div>
-
-                <!-- كرت المثال -->
-                <div class="hero-card">
-                    <p class="hero-card-label">مثال على استشارة في شات التصنيف الذكي:</p>
-
-                    <div class="hero-bubble">
-                        <span class="hero-badge">أم تسأل:</span>
-                        <p>“فورتنايت تناسب ابني عمره ٩ سنوات؟”</p>
-                    </div>
-
-                    <div class="hero-answer">
-                        <div class="hero-tags">
-                            <span class="tag">تصنيف علمي إرشادي</span>
-                            <span class="tag tag-rating">PEGI 12 / ESRB Teen</span>
-                        </div>
-                        <p>
-                            غالبًا يُنصح أن يكون اللاعب أكبر من ١٢ سنة بسبب وجود عنف متوسط
-                            وإطلاق نار وتفاعل مع لاعبين آخرين. تقدري تختاري لعبة مشابهة
-                            بتصنيف أقل يناسب عمر طفلك وحساسيته.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- تعريف مختصر بالمنصة -->
-        <section class="about">
-            <div class="container about-inner">
-                <h2>ليش "التصنيف بحميك"؟</h2>
-                <p>
-                    موقع بسيط يجمع أهم معلومات التصنيف العمري العالمي والمحلي
-                    (مثل GCAM، PEGI، ESRB) في مكان واحد، ويقدمها بشكل مفهوم للأهالي
-                    والمربين.
-                </p>
-
-                <div class="about-points">
-                    <div class="about-pill">
-                        🎯 يساعدك تفرّق بين +3، +7، +12، +16، +18
-                    </div>
-                    <div class="about-pill">
-                        🧩 يربط بين الرموز والمحتوى الفعلي داخل اللعبة أو الفيلم
-                    </div>
-                    <div class="about-pill">
-                        👨‍👩‍👧‍👦 يعطيك نصائح سريعة تناسب عمر وحساسية طفلك
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- =========== الفوتر =========== -->
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>
-                هذه منصة توعوية شخصية، وليست جهة رسمية أو بديلًا عن أنظمة التصنيف المعتمدة.
+            <p class="hero-subtitle">
+                نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي بلغة بسيطة،
+                عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
             </p>
-            <p class="footer-note">
-                دائمًا راجع التصنيف الرسمي قبل الشراء أو السماح بالمشاهدة.
-            </p>
+
+            <div class="hero-actions">
+                <a href="check.html" class="btn btn-primary">
+                    تحقق من تصنيف لعبة / فيلم
+                </a>
+                <a href="games.html" class="btn btn-ghost">
+                    تعرّف على رموز التصنيف
+                </a>
+            </div>
         </div>
+    </section>
+
+    <!-- تعريف مختصر بالموقع -->
+    <section class="intro-section">
+        <div class="intro-card">
+            <h2 class="section-title">ليش وُجد موقع «التصنيف بحميك»؟</h2>
+            <p class="section-text">
+                الموقع يساعد الأهل، والمعلمين، وكل شخص يهتم بالأطفال في فهم التصنيف العمري للمحتوى
+                الترفيهي. الفكرة بسيطة: مكان واحد تلاقي فيه شرح الرموز، أمثلة من الواقع، وأدوات سريعة
+                تساعدك تقرر إذا اللعبة أو الفيلم مناسب لعمر طفلك وحساسيته أو لا.
+            </p>
+            <div class="intro-points">
+                <span>✔ توضيح الرموز والفئات العمرية</span>
+                <span>✔ أمثلة واقعية وقصص من أهل واجهوا مواقف مشابهة</span>
+                <span>✔ أداة تحقق سريعة قبل ما تضغط زر «تحميل» أو «تشغيل»</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- كيف أستخدم الموقع بسرعة؟ -->
+    <section class="how-section">
+        <h2 class="section-title center">كيف تستخدم الموقع خلال دقايق؟</h2>
+        <div class="how-grid">
+            <div class="how-item">
+                <div class="how-number">1</div>
+                <h3>حدّد نوع المحتوى</h3>
+                <p>اختر إذا كان اللي تبي تراجعه لعبة، فيلم، مسلسل، أو تطبيق.</p>
+            </div>
+            <div class="how-item">
+                <div class="how-number">2</div>
+                <h3>ابحث عن التصنيف</h3>
+                <p>من صفحة الألعاب أو الأفلام أو أداة التحقق، دوّر على التصنيف والرموز.</p>
+            </div>
+            <div class="how-item">
+                <div class="how-number">3</div>
+                <h3>قرّر بهدوء</h3>
+                <p>قارن بين عمر طفلك، حساسيته، والشرح الموجود، وبعدين خذ قرارك.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <p>الموقع للاستخدام التوعوي فقط، ويقترح دائمًا الرجوع للمصادر الرسمية مثل GCAM, PEGI, ESRB.</p>
     </footer>
 
-    <!-- =========== Script: تمييز الصفحة + الوضع الليلي =========== -->
     <script>
-        // تمييز الرابط النشط في شريط التنقل
-        (function () {
-            const current = document.body.getAttribute("data-page");
-            document.querySelectorAll("nav a[data-page]").forEach(a => {
-                if (a.dataset.page === current) {
-                    a.classList.add("active");
-                }
-            });
-        })();
+        // تبديل الوضع الليلي
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
 
-        // تفعيل / إلغاء الوضع الليلي + حفظه في LocalStorage
-        (function () {
-            const toggle = document.getElementById("modeToggle");
-            const stored = localStorage.getItem("tasneef-theme");
-
-            if (stored === "dark") {
-                document.body.classList.add("dark");
-            }
-
-            const updateIcon = () => {
-                const icon = toggle.querySelector(".mode-icon");
-                const label = toggle.querySelector(".mode-label");
-                if (document.body.classList.contains("dark")) {
-                    icon.textContent = "☀️";
-                    label.textContent = "الوضع الفاتح";
-                } else {
-                    icon.textContent = "🌙";
-                    label.textContent = "الوضع الليلي";
-                }
-            };
-            updateIcon();
-
-            toggle.addEventListener("click", () => {
-                document.body.classList.toggle("dark");
-                localStorage.setItem(
-                    "tasneef-theme",
-                    document.body.classList.contains("dark") ? "dark" : "light"
-                );
-                updateIcon();
-            });
-        })();
+        toggleBtn.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            body.classList.toggle("light-mode");
+        });
     </script>
 </body>
 </html>
