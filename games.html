@@ -3,62 +3,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>التصنيف العمري للألعاب | التصنيف يحميك</title>
-
-    <!-- ملف التنسيق الأساسي للموقع -->
+    <title>التصنيف العمري للألعاب | صنّف بحميّك</title>
     <link rel="stylesheet" href="style.css" />
 
-    <!-- تنسيقات خاصة بصفحة الألعاب -->
     <style>
+
         body {
-            margin: 0;
             font-family: "Cairo", sans-serif;
             background-color: #f5f8fa;
-            color: #222;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
         }
 
-        /* هيدر الصفحة */
-        .page-hero {
-            background-color: #0093c4;
-            color: #ffffff;
-            padding: 28px 20px 36px;
+        header {
+            background: #008bb8;
+            padding: 35px;
             text-align: center;
-        }
-
-        .page-hero h1 {
-            margin: 0 0 10px;
-            font-size: 32px;
+            color: white;
+            font-size: 28px;
             font-weight: 800;
         }
 
-        .page-hero p {
-            margin: 0;
+        .subtitle {
+            text-align: center;
+            margin-top: 12px;
             font-size: 18px;
-            line-height: 1.7;
+            color: #2c3e50;
         }
 
-        /* ------- (الكود اللي طلبتي إضافته) -------- */
+        /* ===================== NEW PROFESSIONAL STYLE ===================== */
 
         .rating-section {
             display: flex;
             justify-content: center;
-            margin-top: 40px;
+            margin-top: 45px;
         }
 
         .rating-card {
-            width: 80%;
+            width: 85%;
             background: #ffffff;
             border-radius: 18px;
-            padding: 30px;
-            box-shadow: 0px 8px 22px rgba(0,0,0,0.06);
+            padding: 35px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.06);
             border: 1px solid #e7eef5;
             direction: rtl;
             transition: 0.3s ease;
         }
 
         .rating-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0px 12px 28px rgba(0,0,0,0.09);
+            transform: translateY(-4px);
+            box-shadow: 0px 14px 32px rgba(0,0,0,0.09);
         }
 
         .rating-title {
@@ -71,39 +66,31 @@
         }
 
         .rating-block {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .rating-block h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
+            font-size: 22px;
+            margin-bottom: 10px;
             color: #006b8f;
             font-weight: 700;
         }
 
         .rating-block p {
-            font-size: 18px;
+            font-size: 19px;
             color: #333;
-            line-height: 1.8;
         }
 
         .rating-block ul {
             list-style: disc;
-            margin-right: 20px;
-            color: #333;
+            margin-right: 25px;
             font-size: 18px;
-            line-height: 1.9;
+            color: #333;
         }
 
         @media (max-width: 768px) {
-            .rating-card {
-                width: 95%;
-                padding: 22px;
-            }
-
-            .rating-title {
-                font-size: 26px;
-            }
+            .rating-card { width: 95%; }
+            .rating-title { font-size: 26px; }
         }
 
     </style>
@@ -111,44 +98,149 @@
 
 <body>
 
-    <!-- هيدر الصفحة -->
-    <header class="page-hero">
-        <h1>🎮 التصنيف العمري للألعاب</h1>
-        <p>
-            ساعد طفلك يختار تجربة لعب آمنة ومناسبة لعمره وفقًا للمعايير الرسمية السعودية.
-        </p>
-    </header>
+<header> 🎮 التصنيف العمري للألعاب </header>
+<p class="subtitle">ساعد طفلك يختار تجربة لعب آمنة ومناسبة لعمره وفقًا للمعايير الرسمية السعودية.</p>
 
-    <!-- كارد تصنيف +3 -->
-    <main>
-        <section class="rating-section">
-            <div class="rating-card">
-                <h2 class="rating-title">تصنيف +3</h2>
 
-                <div class="rating-block">
-                    <h3>ماذا يعني؟</h3>
-                    <p>
-                        ألعاب تعليمية أو بسيطة جدًا بدون أي نوع من العنف أو المشاهد المزعجة.
-                    </p>
-                </div>
+<!-- ====================== تصنيف +3 ====================== -->
+<div class="rating-section">
+    <div class="rating-card">
 
-                <div class="rating-block">
-                    <h3>أمثلة:</h3>
-                    <ul>
-                        <li>ألعاب الرسم والتلوين.</li>
-                        <li>ألعاب تركيب بسيطة.</li>
-                    </ul>
-                </div>
+        <h2 class="rating-title">تصنيف +3</h2>
 
-                <div class="rating-block">
-                    <h3>للأهل:</h3>
-                    <p>
-                        مناسبة لجميع الأعمار ويمكن ترك الطفل يلعب بها بدون قلق.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
+        <div class="rating-block">
+            <h3>ماذا يعني؟</h3>
+            <p>ألعاب تعليمية أو بسيطة جدًا بدون أي نوع من العنف أو المشاهد المزعجة.</p>
+        </div>
+
+        <div class="rating-block">
+            <h3>أمثلة:</h3>
+            <ul>
+                <li>ألعاب الرسم والتلوين.</li>
+                <li>ألعاب تركيب بسيطة.</li>
+            </ul>
+        </div>
+
+        <div class="rating-block">
+            <h3>للأهل:</h3>
+            <p>مناسبة لجميع الأعمار ويمكن ترك الطفل يلعب بها بدون قلق.</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ====================== تصنيف +7 ====================== -->
+<div class="rating-section">
+    <div class="rating-card">
+
+        <h2 class="rating-title">تصنيف +7</h2>
+
+        <div class="rating-block">
+            <h3>ماذا يعني؟</h3>
+            <p>قد تحتوي على أصوات بسيطة أو عنف كرتوني خفيف جدًا.</p>
+        </div>
+
+        <div class="rating-block">
+            <h3>أمثلة:</h3>
+            <ul>
+                <li>ألعاب المغامرات البسيطة.</li>
+                <li>ألعاب السباق.</li>
+            </ul>
+        </div>
+
+        <div class="rating-block">
+            <h3>للأهل:</h3>
+            <p>ينصح بالانتباه إذا كان الطفل يتأثر بسهولة.</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ====================== تصنيف +12 ====================== -->
+<div class="rating-section">
+    <div class="rating-card">
+
+        <h2 class="rating-title">تصنيف +12</h2>
+
+        <div class="rating-block">
+            <h3>ماذا يعني؟</h3>
+            <p>قد تحتوي على عنف متوسط غير دموي أو مواقف خطيرة بدون تفاصيل.</p>
+        </div>
+
+        <div class="rating-block">
+            <h3>أمثلة:</h3>
+            <ul>
+                <li>Fortnite – Roblox (بعض الأنماط).</li>
+                <li>ألعاب بقاء بسيطة.</li>
+            </ul>
+        </div>
+
+        <div class="rating-block">
+            <h3>للأهل:</h3>
+            <p>ينصح بالمراقبة خصوصًا إذا كان الطفل حساس للمشاهد المخيفة.</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ====================== تصنيف +16 ====================== -->
+<div class="rating-section">
+    <div class="rating-card">
+
+        <h2 class="rating-title">تصنيف +16</h2>
+
+        <div class="rating-block">
+            <h3>ماذا يعني؟</h3>
+            <p>قد تحتوي على عنف واضح، ألفاظ قوية، أو مواقف أكثر نضجًا.</p>
+        </div>
+
+        <div class="rating-block">
+            <h3>أمثلة:</h3>
+            <ul>
+                <li>Apex Legends</li>
+                <li>Valorant</li>
+            </ul>
+        </div>
+
+        <div class="rating-block">
+            <h3>للأهل:</h3>
+            <p>قد تكون غير مناسبة للأطفال، ويحتاج اللاعب لمستوى نضج عالٍ.</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ====================== تصنيف +18 ====================== -->
+<div class="rating-section">
+    <div class="rating-card">
+
+        <h2 class="rating-title">تصنيف +18</h2>
+
+        <div class="rating-block">
+            <h3>ماذا يعني؟</h3>
+            <p>عنف شديد، محتوى ناضج، أو مشاهد غير مناسبة لصغار السن.</p>
+        </div>
+
+        <div class="rating-block">
+            <h3>أمثلة:</h3>
+            <ul>
+                <li>GTA V</li>
+                <li>Call of Duty</li>
+            </ul>
+        </div>
+
+        <div class="rating-block">
+            <h3>للأهل:</h3>
+            <p>غير مناسبة نهائيًا للأطفال وقد تؤثر على السلوك.</p>
+        </div>
+
+    </div>
+</div>
+
 
 </body>
 </html>
