@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>أداة التحقق من التصنيف | التصنيف يحميك</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        body {
+            font-family: "Cairo", sans-serif;
+            background:#f5f8fa;
+            margin:0;
+            padding:0;
+            color:#2c3e50;
+        }
+
+        header {
+            background:#008bb8;
+            padding:30px;
+            text-align:center;
+            color:white;
+            font-size:28px;
+            font-weight:800;
+        }
+
+        .tool-container {
+            width:90%;
+            max-width:800px;
+            margin:35px auto 60px;
+            background:#ffffff;
+            padding:25px 22px;
+            border-radius:18px;
+            box-shadow:0px 8px 22px rgba(0,0,0,0.06);
+            border:1px solid #e7eef5;
+        }
+
+        label {
+            display:block;
+            margin-bottom:6px;
+            font-weight:600;
+            color:#006b8f;
+        }
+
+        input, select {
+            width:100%;
+            padding:10px;
+            margin-bottom:16px;
+            border-radius:10px;
+            border:1px solid #d0d7de;
+            font-family:"Cairo",sans-serif;
+            font-size:15px;
+        }
+
+        button {
+            width:100%;
+            padding:12px;
+            border-radius:12px;
+            border:none;
+            background:#008bb8;
+            color:white;
+            font-size:17px;
+            font-weight:700;
+            cursor:pointer;
+        }
+
+        button:hover {
+            background:#00739b;
+        }
+
+        .result-card {
+            margin-top:22px;
+            padding:18px;
+            border-radius:14px;
+            background:#f0faff;
+            border-right:6px solid #008bb8;
+        }
+
+        .result-title {
+            font-weight:800;
+            color:#006b8f;
+            margin-bottom:8px;
+        }
+
+        .result-row {
+            margin-bottom:4px;
+            font-size:15px;
+        }
+
+        .note {
+            font-size:13px;
+            margin-top:10px;
+            color:#777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header> ✅ أداة التحقق من التصنيف </header>
+
+<main>
+    <div class="tool-container">
+        <p>
+            اكتب اسم اللعبة أو الفيلم أو المسلسل، واختر النوع، ثم اضغط "تحقق".
+            هذه النسخة تجريبية – يمكن لاحقًا ربطها بقواعد بيانات رسمية (PEGI / ESRB / GCAM).
+        </p>
+
+        <label for="title-input">اسم اللعبة / الفيلم / المسلسل</label>
+        <input id="title-input" type="text" placeholder="مثال: Fortnite, GTA V, Inside Out" />
+
+        <label for="type-select">النوع</label>
+        <select id="type-select">
+            <option value="game">لعبة</option>
+            <option value="movie">فيلم</option>
+            <option value="series">مسلسل</option>
+        </select>
+
+        <button onclick="checkRating()">تحقق من التصنيف</button>
+
+        <div id="result" class="result-card" style="display:none;">
+            <div class="result-title">نتيجة التحقق</div>
+            <div class="result-row" id="sa-rating"></div>
+            <div class="result-row" id="global-rating"></div>
+            <div class="result-row" id="content-info"></div>
+            <div class="result-row" id="summary"></div>
+            <p class="note">
+                * هذه النتيجة تقريبية كتجربة للموقع. للإصدار الرسمي يجب ربط الأداة بمصادر موثوقة.
+            </p>
+        </div>
+    </div>
+</main>
+
+<script>
+function checkRating() {
+    const title = document.getElementById("title-input").value.trim().toLowerCase();
+    const type = document.getElementById("type-select").value;
+    const resultBox = document.getElementById("result");
+    const saR = document.getElementById("sa-rating");
+    const glR = document.getElementById("global-rating");
+    const info = document.getElementById("content-info");
+    const sum = document.getElementById("summary");
+
+    if (!title) {
+        alert("من فضلك أدخل اسم اللعبة أو الفيلم أولاً.");
+        return;
+    }
+
+    let saText = "";
+    let glText = "";
+    let infoText = "";
+    let sumText = "";
+
+    // 🔹 منطق تجريبي بسيط (تقدري تعدلينه لاحقًا أو تربطينه بباك-إند)
+    if (title.includes("gta")) {
+        saText  = "التصنيف السعودي التقريبي: +18";
+        glText  = "التصنيف العالمي التقريبي: M / 18+";
+        infoText = "محتوى عنيف، جريمة، لغة بذيئة، مواضيع غير مناسبة للصغار.";
+        sumText = "لا يناسب نهائيًا من هم دون 18 عامًا.";
+    } else if (title.includes("fortnite")) {
+        saText  = "التصنيف السعودي التقريبي: +12";
+        glText  = "التصنيف العالمي التقريبي: PEGI 12 / Teen";
+        infoText = "إطلاق نار كرتوني، منافسة أونلاين، محتوى قتالي بدون دماء واقعية.";
+        sumText = "قد لا يناسب من هم دون 10 سنوات، ويُنصح بالمراقبة.";
+    } else if (title.includes("minecraft")) {
+        saText  = "التصنيف السعودي التقريبي: +7 (يختلف حسب الوضع)";
+        glText  = "التصنيف العالمي التقريبي: PEGI 7";
+        infoText = "بناء، استكشاف، مخلوقات خيالية، يمكن تخفيفها باستخدام Creative Mode.";
+        sumText = "مناسبة عمومًا مع تفضيل اللعب في الوضع الإبداعي للصغار.";
+    } else {
+        saText  = "لم يتم العثور على تصنيف تلقائي لهذا العنوان.";
+        glText  = "يُنصح بالبحث في قواعد البيانات الرسمية (PEGI / ESRB / GCAM).";
+        infoText = "استخدم أداة البحث الرسمية أو شات الذكاء الاصطناعي داخل الموقع.";
+        sumText = "لا تعتمد على هذه النتيجة وحدها، تحقّق يدويًا من المصادر الرسمية.";
+    }
+
+    saR.textContent = "• " + saText;
+    glR.textContent = "• " + glText;
+    info.textContent = "• وصف المحتوى: " + infoText;
+    sum.textContent = "• الخلاصة: " + sumText;
+
+    resultBox.style.display = "block";
+}
+</script>
+
+</body>
+</html>

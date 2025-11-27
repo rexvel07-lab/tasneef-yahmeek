@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>شات التصنيف الذكي | التصنيف يحميك</title>
+
+    <style>
+        body {
+            font-family:"Cairo",sans-serif;
+            background:#f5f8fa;
+            margin:0;
+            padding:0;
+            color:#2c3e50;
+        }
+
+        header {
+            background:#008bb8;
+            padding:30px;
+            text-align:center;
+            color:white;
+            font-size:26px;
+            font-weight:800;
+        }
+
+        .chat-wrapper {
+            width:90%;
+            max-width:900px;
+            margin:30px auto 40px;
+            background:#ffffff;
+            border-radius:18px;
+            box-shadow:0 8px 22px rgba(0,0,0,0.06);
+            border:1px solid #e7eef5;
+            display:flex;
+            flex-direction:column;
+            height:70vh;
+            max-height:650px;
+        }
+
+        .chat-header {
+            padding:15px 18px;
+            border-bottom:1px solid #e7eef5;
+            font-size:15px;
+            color:#555;
+        }
+
+        .chat-messages {
+            flex:1;
+            padding:18px;
+            overflow-y:auto;
+            background:#f8fbff;
+        }
+
+        .msg {
+            margin-bottom:15px;
+            max-width:80%;
+            padding:10px 12px;
+            border-radius:12px;
+            line-height:1.7;
+            font-size:15px;
+        }
+
+        .msg-user {
+            background:#008bb8;
+            color:white;
+            margin-left:auto;
+            border-bottom-left-radius:2px;
+        }
+
+        .msg-bot {
+            background:#ffffff;
+            border:1px solid #e1e6ec;
+            margin-right:auto;
+            border-bottom-right-radius:2px;
+        }
+
+        .chat-input {
+            display:flex;
+            border-top:1px solid #e7eef5;
+        }
+
+        .chat-input textarea {
+            flex:1;
+            border:none;
+            padding:10px 12px;
+            font-family:"Cairo",sans-serif;
+            resize:none;
+            font-size:15px;
+            height:60px;
+        }
+
+        .chat-input button {
+            width:120px;
+            border:none;
+            background:#008bb8;
+            color:white;
+            font-weight:700;
+            cursor:pointer;
+        }
+
+        .chat-input button:hover {
+            background:#00739b;
+        }
+
+        .chat-note {
+            font-size:12px;
+            color:#888;
+            padding:0 18px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header> 🤖 شات التصنيف الذكي </header>
+
+<div class="chat-wrapper">
+    <div class="chat-header">
+        اسأل عن تصنيف لعبة، فيلم، أو مسلسل – الشات يوضح لك التصنيف التقريبي ويقترح عليك التصنيف الأنسب لطفلك.
+    </div>
+
+    <div id="chat-messages" class="chat-messages">
+        <div class="msg msg-bot">
+            أهلاً بك 👋 أنا مساعد التصنيف العمري. اسألني مثلاً:<br>
+            <small>• هل لعبة Fortnite مناسبة لعمر 10 سنوات؟<br>• ما هو تصنيف فيلم Inside Out؟</small>
+        </div>
+    </div>
+
+    <div class="chat-note">
+        * هذه نسخة تجريبية تعمل من المتصفح فقط. للإصدار الرسمي يجب ربط الشات بنموذج ذكاء اصطناعي وخدمات تصنيف رسمية (PEGI / ESRB / GCAM).
+    </div>
+
+    <div class="chat-input">
+        <textarea id="user-input" placeholder="اكتب سؤالك هنا..."></textarea>
+        <button onclick="sendMessage()">إرسال</button>
+    </div>
+</div>
+
+<script>
+function addMessage(text, sender = "bot") {
+    const box = document.getElementById("chat-messages");
+    const div = document.createElement("div");
+    div.classList.add("msg");
+    div.classList.add(sender === "user" ? "msg-user" : "msg-bot");
+    div.innerHTML = text;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+}
+
+function sendMessage() {
+    const input = document.getElementById("user-input");
+    const text = input.value.trim();
+    if (!text) return;
+
+    addMessage(text, "user");
+    input.value = "";
+
+    // استجابة تجريبية – هنا لاحقاً يتم استبدالها باستدعاء API حقيقي
+    setTimeout(() => {
+        const reply = simulateAiReply(text);
+        addMessage(reply, "bot");
+    }, 500);
+}
+
+// منطق تجريبي بسيط – عشان تشوفي الفكرة
+function simulateAiReply(question) {
+    const q = question.toLowerCase();
+
+    if (q.includes("fortnite")) {
+        return `
+        التصنيف التقريبي للعبة <strong>Fortnite</strong>:<br>
+        • عالميًا: PEGI 12 / Teen<br>
+        • السبب: عنف كرتوني، إطلاق نار، منافسة أونلاين.<br>
+        <strong>النصيحة:</strong> لا يُنصح بها لمن هم أصغر من 10 سنوات، ويفضل تفعيل الرقابة الأبوية وتقليل وقت اللعب.
+        `;
+    }
+
+    if (q.includes("gta")) {
+        return `
+        لعبة <strong>GTA V</strong> تصنّف عادة ضمن فئة 18+:<br>
+        • عنف شديد، جريمة، لغة بذيئة، محتوى غير مناسب للصغار.<br>
+        <strong>النصيحة:</strong> لا يُنصح بها نهائيًا للأطفال أو المراهقين الصغار.
+        `;
+    }
+
+    if (q.includes("inside out")) {
+        return `
+        فيلم <strong>Inside Out</strong>:<br>
+        • مناسب غالبًا لفئة عائلية (تصنيف عام / إرشادي).<br>
+        • يتناول مشاعر الطفلة بشكل لطيف وقد يحتاج توضيح من الأهل لبعض المشاهد العاطفية.<br>
+        <strong>النصيحة:</strong> مناسب للأطفال مع وجود أحد الوالدين للحوار حول المشاعر.
+        `;
+    }
+
+    return `
+    شكرًا لسؤالك 🌟<br>
+    هذه نسخة تجريبية من الشات، تعطي اجابات تقريبية فقط.<br>
+    للإجابة الدقيقة، يُفضّل مراجعة التصنيف الرسمي في قواعد البيانات مثل PEGI / ESRB أو استخدام أداة "تحقق من التصنيف" في الموقع.
+    `;
+}
+</script>
+
+</body>
+</html>
