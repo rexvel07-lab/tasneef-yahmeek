@@ -1,157 +1,141 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>التصنيف العمري للألعاب | صنّف يحميك</title>
-
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التصنيف العمري للألعاب | صنّف يهمّك</title>
+    <link rel="stylesheet" href="style.css">
 
     <style>
         body {
             font-family: "Cairo", sans-serif;
-            background: #f8fafc;
+            background-color: #f5f8fa;
             margin: 0;
             padding: 0;
-            line-height: 1.8;
         }
 
         header {
-            background: #00a3cc;
-            padding: 25px;
-            text-align: center;
+            background: #008ccf;
             color: white;
+            padding: 22px;
+            text-align: center;
             font-size: 26px;
-            font-weight: bold;
+            letter-spacing: 1px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .container {
             width: 90%;
-            max-width: 1000px;
-            margin: auto;
-            padding-top: 25px;
+            margin: 40px auto;
         }
 
-        h2 {
-            margin-top: 40px;
-            color: #0088a8;
-            border-right: 5px solid #00a3cc;
+        .section-desc {
+            text-align: center;
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 50px;
+        }
+
+        .age-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0078a8;
+            border-right: 8px solid #00b0ea;
             padding-right: 15px;
+            margin-top: 65px;
+            margin-bottom: 25px;
         }
 
         .box {
             background: white;
-            padding: 20px 25px;
-            margin: 18px 0;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 30px;
+            border-radius: 18px;
+            width: 90%;
+            margin: auto;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            border-right: 15px solid #00b0ea;
+            transition: 0.25s;
+        }
+
+        .box:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
         }
 
         ul {
-            padding-right: 25px;
+            line-height: 2;
+            font-size: 19px;
+        }
+
+        strong {
+            color: #004865;
+            font-size: 20px;
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    التصنيف العمري للألعاب 🎮
-</header>
+    <header>
+        🎮 التصنيف العمري للألعاب
+    </header>
 
-<div class="container">
+    <div class="container">
 
-    <p style="font-size: 20px; font-weight: 500;">
-        ساعد طفلك يختار تجربة لعب آمنة ومناسبة لعمره.
-    </p>
+        <p class="section-desc">
+            ساعد طفلك يختار تجربة لعب آمنة ومناسبة لعمره وفقًا للمعايير الرسمية السعودية.
+        </p>
 
-    <!-- +3 -->
-    <h2>تصنيف +3</h2>
+        <!-- ⭐⭐⭐ تصنيف +3 ⭐⭐⭐ -->
+        <h3 class="age-title">تصنيف 3+</h3>
+        <div class="box">
+            <p><strong>ماذا يعني؟</strong></p>
+            <p>ألعاب تعليمية أو بسيطة جدًا بدون أي نوع من العنف أو المشاهد المزعجة.</p>
 
-    <div class="box">
-        <strong>ماذا يعني؟</strong>
-        <p>ألعاب تعليمية أو بسيطة جدًا بدون أي عنف.</p>
+            <p><strong>أمثلة:</strong></p>
+            <ul>
+                <li>ألعاب الرسم والتلوين</li>
+                <li>ألعاب تركيب بسيطة</li>
+            </ul>
 
-        <strong>أمثلة:</strong>
-        <ul>
-            <li>ألعاب الرسم</li>
-            <li>تركيب بسيط</li>
-        </ul>
+            <p><strong>للأهل:</strong></p>
+            <p>آمنة تمامًا لجميع الأعمار.</p>
+        </div>
 
-        <strong>للأهل:</strong>
-        <p>آمنة لجميع الأعمار.</p>
+        <!-- ⭐⭐⭐ تصنيف +7 ⭐⭐⭐ -->
+        <h3 class="age-title">تصنيف 7+</h3>
+        <div class="box">
+            <p><strong>ماذا يعني؟</strong></p>
+            <p>قد تحتوي اللعبة على أصوات مخيفة بسيطة أو عنف كرتوني خفيف جدًا.</p>
+
+            <p><strong>أمثلة:</strong></p>
+            <ul>
+                <li>ألعاب مغامرات خفيفة</li>
+                <li>ألعاب سباق</li>
+            </ul>
+
+            <p><strong>للأهل:</strong></p>
+            <p>قد يتأثر بعض الأطفال الأصغر سنًا — لذلك يُنصح بالمراقبة.</p>
+        </div>
+
+        <!-- ⭐⭐⭐ تصنيف +12 ⭐⭐⭐ -->
+        <h3 class="age-title">تصنيف 12+</h3>
+        <div class="box">
+            <p><strong>ماذا يعني؟</strong></p>
+            <p>عنف خفيف غير دموي — مواقف خطيرة بدون تفاصيل.</p>
+
+            <p><strong>أمثلة:</strong></p>
+            <ul>
+                <li>Fortnite — Roblox (بعض الأطوار)</li>
+                <li>ألعاب قتال بسيطة غير دامية</li>
+            </ul>
+
+            <p><strong>للأهل:</strong></p>
+            <p>يجب التأكد من عدم وجود شات مفتوح غير مناسب داخل اللعبة.</p>
+        </div>
+
     </div>
-
-    <!-- +7 -->
-    <h2>تصنيف +7</h2>
-
-    <div class="box">
-        <strong>ماذا يعني؟</strong>
-        <p>قد تحتوي على أصوات مفاجئة أو عنف كرتوني خفيف.</p>
-
-        <strong>أمثلة:</strong>
-        <ul>
-            <li>مغامرات خفيفة</li>
-            <li>سباق سيارات</li>
-        </ul>
-
-        <strong>للأهل:</strong>
-        <p>مناسبة لكن يجب الانتباه إذا كان الطفل يتأثر بسهولة.</p>
-    </div>
-
-    <!-- +12 -->
-    <h2>تصنيف +12</h2>
-
-    <div class="box">
-        <strong>ماذا يعني؟</strong>
-        <p>عنف متوسط غير دموي – مواقف خطيرة دون تفاصيل.</p>
-
-        <strong>أمثلة:</strong>
-        <ul>
-            <li>Fortnite (نسخة مع بعض القيود)</li>
-            <li>Roblox (بعض الألعاب)</li>
-        </ul>
-
-        <strong>للأهل:</strong>
-        <p>يجب مراقبة الوقت ومحتوى المحادثات.</p>
-    </div>
-
-    <!-- +16 -->
-    <h2>تصنيف +16</h2>
-
-    <div class="box">
-        <strong>ماذا يعني؟</strong>
-        <p>عنف واضح، محتوى قتال، سلوك غير مناسب أحياناً.</p>
-
-        <strong>أمثلة:</strong>
-        <ul>
-            <li>Apex Legends</li>
-            <li>Call of Duty Mobile</li>
-        </ul>
-
-        <strong>للأهل:</strong>
-        <p>لا يُنصح للأطفال. قد يحتوي على مشتريات وتأثيرات سلوكية.</p>
-    </div>
-
-    <!-- +18 -->
-    <h2>تصنيف +18</h2>
-
-    <div class="box">
-        <strong>ماذا يعني؟</strong>
-        <p>عنف شديد – محتوى حساس – مواقف مؤذية.</p>
-
-        <strong>أمثلة:</strong>
-        <ul>
-            <li>GTA V</li>
-            <li>Call of Duty (الإصدارات الكاملة)</li>
-        </ul>
-
-        <strong>للأهل:</strong>
-        <p>غير مناسب نهائيًا لغير البالغين.</p>
-    </div>
-
-</div>
 
 </body>
 </html>
