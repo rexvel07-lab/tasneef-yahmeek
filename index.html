@@ -2,493 +2,181 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <title>التصنيف بحميك | المنصة التوعوية للتصنيف العمري</title>
+    <title>التصنيف بحميك | الرئيسية</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- خط جميل -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <style>
-        :root {
-            --bg-main: #f5f8fc;
-            --bg-card: #ffffff;
-            --bg-hero-from: #00a2d6;
-            --bg-hero-to: #0082b4;
-            --text-main: #1f2933;
-            --text-muted: #5f6c80;
-            --primary: #00a2d6;
-            --primary-dark: #0082b4;
-            --accent: #ffc857;
-            --border-soft: #dde5f0;
-            --shadow-soft: 0 18px 35px rgba(15, 23, 42, 0.08);
-        }
-
-        body.dark {
-            --bg-main: #050816;
-            --bg-card: #0b1220;
-            --bg-hero-from: #020617;
-            --bg-hero-to: #020617;
-            --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
-            --primary: #38bdf8;
-            --primary-dark: #0ea5e9;
-            --accent: #facc15;
-            --border-soft: #1f2937;
-            --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.6);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: var(--bg-main);
-            color: var(--text-main);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .home-wrapper {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        /* ========== NAVBAR ========== */
-        header {
-            background: rgba(255, 255, 255, 0.86);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        body.dark header {
-            background: rgba(15, 23, 42, 0.9);
-            border-bottom-color: rgba(148, 163, 184, 0.15);
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 16px;
-        }
-
-        .nav-left,
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 800;
-            font-size: 18px;
-            color: var(--primary-dark);
-        }
-
-        .logo span {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f97316, #fb7185);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: #fff;
-        }
-
-        body.dark .logo span {
-            background: linear-gradient(135deg, #22c55e, #14b8a6);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 16px;
-            font-size: 15px;
-        }
-
-        .nav-links a {
-            padding: 6px 10px;
-            border-radius: 999px;
-            color: var(--text-muted);
-            transition: 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            background: rgba(148, 163, 184, 0.15);
-            color: var(--text-main);
-        }
-
-        .nav-links a.active {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        .theme-toggle {
-            border-radius: 999px;
-            border: 1px solid var(--border-soft);
-            padding: 6px 10px;
-            font-size: 13px;
-            background: var(--bg-card);
-            color: var(--text-muted);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .theme-toggle span {
-            font-size: 16px;
-        }
-
-        /* ========== HERO ========== */
-        .home-hero {
-            background: linear-gradient(135deg, var(--bg-hero-from), var(--bg-hero-to));
-            color: #ffffff;
-            padding: 55px 0 70px;
-            text-align: center;
-        }
-
-        .home-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(15, 23, 42, 0.15);
-            padding: 6px 16px;
-            border-radius: 999px;
-            font-size: 13px;
-            margin-bottom: 18px;
-        }
-
-        .home-hero-badge span {
-            font-size: 15px;
-        }
-
-        .home-hero-title {
-            font-size: clamp(30px, 3vw + 20px, 40px);
-            line-height: 1.6;
-            margin: 0 0 10px;
-            font-weight: 800;
-        }
-
-        .home-hero-title span {
-            color: #ffe18a;
-        }
-
-        .home-hero-text {
-            font-size: 17px;
-            line-height: 1.9;
-            max-width: 640px;
-            margin: 0 auto 24px;
-        }
-
-        .home-hero-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary,
-        .btn-outline,
-        .btn-ghost {
-            border-radius: 999px;
-            padding: 10px 20px;
-            font-size: 15px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid transparent;
-            cursor: pointer;
-            transition: 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: #22c55e;
-            border-color: #16a34a;
-            color: #ffffff;
-            box-shadow: 0 14px 30px rgba(22, 163, 74, 0.35);
-        }
-
-        .btn-primary:hover {
-            background: #16a34a;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: rgba(255, 255, 255, 0.7);
-            color: #ffffff;
-        }
-
-        .btn-outline:hover {
-            background: rgba(15, 23, 42, 0.15);
-        }
-
-        .btn-ghost {
-            background: rgba(15, 23, 42, 0.18);
-            color: #e5e7eb;
-        }
-
-        .btn-ghost:hover {
-            background: rgba(15, 23, 42, 0.28);
-        }
-
-        /* ========== CARDS SECTION ========== */
-        .home-section {
-            padding: 45px 0 70px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-        }
-
-        @media (max-width: 900px) {
-            .cards-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-
-        @media (max-width: 640px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .home-hero {
-                padding: 40px 0 55px;
-            }
-        }
-
-        .card {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 20px 20px 18px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--border-soft);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 14px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-        }
-
-        .card-icon.green {
-            background: rgba(34, 197, 94, 0.08);
-            color: #16a34a;
-        }
-
-        .card-icon.blue {
-            background: rgba(59, 130, 246, 0.1);
-            color: #2563eb;
-        }
-
-        .card-icon.purple {
-            background: rgba(168, 85, 247, 0.1);
-            color: #7c3aed;
-        }
-
-        body.dark .card-icon.green {
-            background: rgba(34, 197, 94, 0.15);
-        }
-
-        body.dark .card-icon.blue {
-            background: rgba(59, 130, 246, 0.15);
-        }
-
-        body.dark .card-icon.purple {
-            background: rgba(168, 85, 247, 0.25);
-        }
-
-        .card-title {
-            font-weight: 700;
-            font-size: 17px;
-        }
-
-        .card-text {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .card-link {
-            margin-top: 4px;
-            font-size: 14px;
-            color: var(--primary-dark);
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .card-link span {
-            font-size: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <!-- ========== NAVBAR ========== -->
-    <header>
-        <div class="home-wrapper nav">
-            <div class="nav-right">
-                <a href="index.html" class="logo">
-                    <span>🎮</span>
-                    <div>التصنيف بحميك</div>
-                </a>
-                <nav class="nav-links">
-                    <a href="index.html" class="active">الرئيسية</a>
-                    <a href="games.html">تصنيف الألعاب</a>
-                    <a href="movies.html">تصنيف الأفلام</a>
-                    <a href="check.html">أداة التحقق</a>
-                    <a href="parents.html">دليل الوالدين</a>
-                    <a href="stories.html">القصص الواقعية</a>
-                    <a href="blog.html">المدونة</a>
-                    <a href="chat.html">شات التصنيف الذكي</a>
-                </nav>
+
+<body data-page="home">
+    <!-- =========== شريط التنقل =========== -->
+    <header class="top-nav">
+        <div class="container nav-inner">
+            <!-- اللوغو -->
+            <div class="brand">
+                <span class="brand-icon">🎮</span>
+                <div class="brand-text">
+                    <span class="brand-title">التصنيف بحميك</span>
+                    <span class="brand-sub">منصة توعوية غير رسمية</span>
+                </div>
             </div>
-            <div class="nav-left">
-                <button id="themeToggle" class="theme-toggle" type="button">
-                    <span id="themeIcon">🌙</span>
-                    <span id="themeLabel">الوضع الليلي</span>
-                </button>
-            </div>
+
+            <!-- القائمة -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html" data-page="home">الرئيسية</a></li>
+                    <li><a href="games.html" data-page="games">تصنيف الألعاب</a></li>
+                    <li><a href="movies.html" data-page="movies">تصنيف الأفلام</a></li>
+                    <li><a href="checker.html" data-page="checker">أداة التحقق</a></li>
+                    <li><a href="parents.html" data-page="parents">دليل الوالدين</a></li>
+                    <li><a href="stories.html" data-page="stories">القصص الواقعية</a></li>
+                    <li><a href="blog.html" data-page="blog">المدونة</a></li>
+                    <li><a href="chat.html" data-page="chat">شات التصنيف الذكي</a></li>
+                </ul>
+            </nav>
+
+            <!-- زر الوضع الليلي -->
+            <button class="mode-toggle" id="modeToggle" type="button">
+                <span class="mode-label">الوضع الليلي</span>
+                <span class="mode-icon">🌙</span>
+            </button>
         </div>
     </header>
 
-    <!-- ========== HERO ========== -->
-    <section class="home-hero">
-        <div class="home-wrapper">
-            <div class="home-hero-badge">
-                <span>📢</span> منصة توعوية – ليست جهة رسمية
+    <!-- =========== المحتوى الرئيسي =========== -->
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <!-- النص -->
+                <div class="hero-text">
+                    <p class="hero-chip">
+                        منصة توعوية <span>غير رسمية</span>
+                    </p>
+
+                    <h1 class="hero-title">
+                        اعرف المحتوى المناسب لعمر طفلك...
+                        <span>قبل ما تسمح له يشاهده أو يلعبه.</span>
+                    </h1>
+
+                    <p class="hero-sub">
+                        نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي
+                        بلغة بسيطة، عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="checker.html" class="btn primary">
+                            تحقق من تصنيف لعبة / فيلم
+                        </a>
+                        <a href="games.html" class="btn ghost">
+                            تعرّف على رموز التصنيف
+                        </a>
+                    </div>
+                </div>
+
+                <!-- كرت المثال -->
+                <div class="hero-card">
+                    <p class="hero-card-label">مثال على استشارة في شات التصنيف الذكي:</p>
+
+                    <div class="hero-bubble">
+                        <span class="hero-badge">أم تسأل:</span>
+                        <p>“فورتنايت تناسب ابني عمره ٩ سنوات؟”</p>
+                    </div>
+
+                    <div class="hero-answer">
+                        <div class="hero-tags">
+                            <span class="tag">تصنيف علمي إرشادي</span>
+                            <span class="tag tag-rating">PEGI 12 / ESRB Teen</span>
+                        </div>
+                        <p>
+                            غالبًا يُنصح أن يكون اللاعب أكبر من ١٢ سنة بسبب وجود عنف متوسط
+                            وإطلاق نار وتفاعل مع لاعبين آخرين. تقدري تختاري لعبة مشابهة
+                            بتصنيف أقل يناسب عمر طفلك وحساسيته.
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <h1 class="home-hero-title">
-                اعرف المحتوى المناسب لعمر طفلك...
-                <span>قبل ما تسمح له يشاهده أو يلعبه.</span>
-            </h1>
+        <!-- تعريف مختصر بالمنصة -->
+        <section class="about">
+            <div class="container about-inner">
+                <h2>ليش "التصنيف بحميك"؟</h2>
+                <p>
+                    موقع بسيط يجمع أهم معلومات التصنيف العمري العالمي والمحلي
+                    (مثل GCAM، PEGI، ESRB) في مكان واحد، ويقدمها بشكل مفهوم للأهالي
+                    والمربين.
+                </p>
 
-            <p class="home-hero-text">
-                نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي
-                بلغة بسيطة وواضحة، عشان تكون قراراتك أقرب لقيم عائلتك وأمان أطفالك.
+                <div class="about-points">
+                    <div class="about-pill">
+                        🎯 يساعدك تفرّق بين +3، +7، +12، +16، +18
+                    </div>
+                    <div class="about-pill">
+                        🧩 يربط بين الرموز والمحتوى الفعلي داخل اللعبة أو الفيلم
+                    </div>
+                    <div class="about-pill">
+                        👨‍👩‍👧‍👦 يعطيك نصائح سريعة تناسب عمر وحساسية طفلك
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========== الفوتر =========== -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>
+                هذه منصة توعوية شخصية، وليست جهة رسمية أو بديلًا عن أنظمة التصنيف المعتمدة.
             </p>
-
-            <div class="home-hero-actions">
-                <a href="check.html" class="btn-primary">
-                    ✅ تحقّق من تصنيف لعبة / فيلم
-                </a>
-                <a href="games.html" class="btn-outline">
-                    🎯 تعرّف على رموز التصنيف
-                </a>
-                <a href="chat.html" class="btn-ghost">
-                    💬 اسأل شات التصنيف الذكي
-                </a>
-            </div>
+            <p class="footer-note">
+                دائمًا راجع التصنيف الرسمي قبل الشراء أو السماح بالمشاهدة.
+            </p>
         </div>
-    </section>
+    </footer>
 
-    <!-- ========== MAIN CARDS ========== -->
-    <section class="home-section">
-        <div class="home-wrapper">
-            <div class="cards-grid">
-                <!-- بطاقة 1: التحقق السريع -->
-                <article class="card">
-                    <div class="card-header">
-                        <div class="card-icon green">✅</div>
-                        <div class="card-title">تحقّق من التصنيف في ثواني</div>
-                    </div>
-                    <p class="card-text">
-                        أدخل اسم اللعبة أو الفيلم في أداة التحقق، وخذ ملخّص سريع
-                        عن التصنيف والفئات العمرية والمحتوى البارز، قبل ما تسمح
-                        لابنك بالمشاهدة أو اللعب.
-                    </p>
-                    <a href="check.html" class="card-link">
-                        الانتقال إلى أداة التحقق <span>↗</span>
-                    </a>
-                </article>
-
-                <!-- بطاقة 2: فهم الرموز -->
-                <article class="card">
-                    <div class="card-header">
-                        <div class="card-icon blue">🎮</div>
-                        <div class="card-title">فهم الرموز والفئات العمرية</div>
-                    </div>
-                    <p class="card-text">
-                        صفحات تصنيف الألعاب والأفلام تشرح لك معنى (+3، +7، Teen...)
-                        مع أمثلة مبسّطة تساعدك تفرق بين أنواع المحتوى، وتختار
-                        الأنسب لعمر وحساسية طفلك.
-                    </p>
-                    <a href="games.html" class="card-link">
-                        استكشاف تصنيف الألعاب والأفلام <span>↗</span>
-                    </a>
-                </article>
-
-                <!-- بطاقة 3: قصص واقعية وشات ذكي -->
-                <article class="card">
-                    <div class="card-header">
-                        <div class="card-icon purple">📚</div>
-                        <div class="card-title">قصص حقيقية وشات ذكي</div>
-                    </div>
-                    <p class="card-text">
-                        اقرأ مواقف واقعية من أهالي واجهوا محتوى غير مناسب،
-                        واستفادوا من التصنيف العمري، واستخدم شات التصنيف الذكي
-                        لتحصل على إجابة مخصّصة لحالة عائلتك.
-                    </p>
-                    <a href="stories.html" class="card-link">
-                        الذهاب إلى القصص والشات <span>↗</span>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
-
+    <!-- =========== Script: تمييز الصفحة + الوضع الليلي =========== -->
     <script>
-        // تفعيل الوضع الليلي
-        const toggleBtn = document.getElementById("themeToggle");
-        const iconSpan = document.getElementById("themeIcon");
-        const labelSpan = document.getElementById("themeLabel");
+        // تمييز الرابط النشط في شريط التنقل
+        (function () {
+            const current = document.body.getAttribute("data-page");
+            document.querySelectorAll("nav a[data-page]").forEach(a => {
+                if (a.dataset.page === current) {
+                    a.classList.add("active");
+                }
+            });
+        })();
 
-        // لو المتصفح يحب الوضع الداكن – نبدأ به
-        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.body.classList.add("dark");
-            iconSpan.textContent = "☀️";
-            labelSpan.textContent = "الوضع الفاتح";
-        }
+        // تفعيل / إلغاء الوضع الليلي + حفظه في LocalStorage
+        (function () {
+            const toggle = document.getElementById("modeToggle");
+            const stored = localStorage.getItem("tasneef-theme");
 
-        toggleBtn.addEventListener("click", () => {
-            const isDark = document.body.classList.toggle("dark");
-            if (isDark) {
-                iconSpan.textContent = "☀️";
-                labelSpan.textContent = "الوضع الفاتح";
-            } else {
-                iconSpan.textContent = "🌙";
-                labelSpan.textContent = "الوضع الليلي";
+            if (stored === "dark") {
+                document.body.classList.add("dark");
             }
-        });
+
+            const updateIcon = () => {
+                const icon = toggle.querySelector(".mode-icon");
+                const label = toggle.querySelector(".mode-label");
+                if (document.body.classList.contains("dark")) {
+                    icon.textContent = "☀️";
+                    label.textContent = "الوضع الفاتح";
+                } else {
+                    icon.textContent = "🌙";
+                    label.textContent = "الوضع الليلي";
+                }
+            };
+            updateIcon();
+
+            toggle.addEventListener("click", () => {
+                document.body.classList.toggle("dark");
+                localStorage.setItem(
+                    "tasneef-theme",
+                    document.body.classList.contains("dark") ? "dark" : "light"
+                );
+                updateIcon();
+            });
+        })();
     </script>
 </body>
 </html>
