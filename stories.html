@@ -9,149 +9,98 @@
     <style>
         body {
             font-family: "Cairo", sans-serif;
-            background-color: #f5f8fa;
-            margin: 0;
-            padding: 0;
-            color: #2c3e50;
+            background:#f5f8fa;
+            margin:0;
+            padding:0;
+            color:#2c3e50;
         }
 
         header {
-            background: #008bb8;
-            padding: 35px;
-            text-align: center;
-            color: white;
-            font-size: 30px;
-            font-weight: 800;
+            background:#008bb8;
+            padding:35px;
+            text-align:center;
+            color:white;
+            font-size:30px;
+            font-weight:800;
         }
 
         .subtitle {
-            text-align: center;
-            margin: 15px auto 0;
-            font-size: 18px;
-            color: #34495e;
+            text-align:center;
+            margin:15px auto 30px;
+            font-size:18px;
+            color:#34495e;
         }
 
-        .stories-container {
-            width: 90%;
-            max-width: 1000px;
-            margin: 35px auto 60px;
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
+        .story-list {
+            width:90%;
+            max-width:800px;
+            margin:0 auto 50px;
+            display:flex;
+            flex-direction:column;
+            gap:18px;
         }
 
-        .story-card {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 22px 20px;
-            box-shadow: 0px 8px 20px rgba(0,0,0,0.06);
-            border: 1px solid #e7eef5;
+        .story-item {
+            background:white;
+            padding:18px 20px;
+            border-radius:14px;
+            box-shadow:0 6px 16px rgba(0,0,0,0.05);
+            border:1px solid #e7eef5;
+            transition:0.25s;
         }
 
-        .story-title {
-            font-size: 21px;
-            font-weight: 800;
-            color: #c0392b;
-            margin-bottom: 8px;
+        .story-item:hover {
+            transform: translateX(-5px);
+            box-shadow:0px 10px 22px rgba(0,0,0,0.08);
         }
 
-        .story-tag {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 10px;
+        .story-link {
+            text-decoration:none;
+            color:#007aa6;
+            font-size:20px;
+            font-weight:800;
+            display:block;
         }
 
-        .story-block-title {
-            font-weight: 700;
-            color: #006b8f;
-            margin-top: 8px;
-            margin-bottom: 4px;
+        .story-desc {
+            font-size:14px;
+            margin-top:5px;
+            color:#5a5a5a;
         }
 
-        .story-card p {
-            font-size: 16.5px;
-            margin: 0 0 6px;
-            line-height: 1.8;
-        }
     </style>
 </head>
 
 <body>
 
 <header> 📚 قصص واقعية </header>
-<p class="subtitle">
-    مواقف حقيقية توضّح أثر المحتوى غير المناسب على الأطفال، وما الدور الذي يلعبه التصنيف العمري في الحماية.
-</p>
 
-<main>
-    <div class="stories-container">
+<p class="subtitle">قصص حقيقية توضّح أثر المحتوى غير المناسب على الأطفال</p>
 
-        <!-- قصة 1 -->
-        <article class="story-card">
-            <div class="story-title">طفل يقلّد لعبة رعب ويسبّب أذى لنفسه</div>
-            <div class="story-tag">عمر الطفل: 9 سنوات • تصنيف اللعبة: 18+</div>
+<div class="story-list">
 
-            <p class="story-block-title">ماذا حدث؟</p>
-            <p>
-                شاهد طفل في التاسعة من عمره لعبة رعب مليئة بالمطاردات والمشاهد المظلمة،
-                وبدأ يقلّد بعض الحركات والمواقف في المنزل، مما أدى إلى سقوطه من مكان مرتفع
-                وتعرّضه لإصابة.
-            </p>
-
-            <p class="story-block-title">أين كان الخلل؟</p>
-            <p>اللعبة كانت بتصنيف +18، ولم يتم الانتباه للتصنيف قبل السماح له بالمشاهدة.</p>
-
-            <p class="story-block-title">النتيجة:</p>
-            <p>تعرّض الطفل لإصابة جسدية، إضافة إلى كوابيس متكررة وخوف من النوم بمفرده.</p>
-
-            <p class="story-block-title">كيف نتجنب ذلك؟</p>
-            <p>عدم السماح بمشاهدة أو لعب أي محتوى رعب بتصنيف مرتفع، حتى لو كان “مجرد لعبة”.</p>
-        </article>
-
-        <!-- قصة 2 -->
-        <article class="story-card">
-            <div class="story-title">سلوك عدواني بسبب ألعاب عنيفة</div>
-            <div class="story-tag">عمر الطفل: 11 سنة • نوع المحتوى: ألعاب إطلاق نار</div>
-
-            <p class="story-block-title">ماذا حدث؟</p>
-            <p>
-                بدأ الطفل يستخدم عبارات عدوانية في المنزل والمدرسة، ويقلّد حركات الأسلحة،
-                ثم أصبح اللعب التعاوني عنده يتحوّل لمنافسة حادة وصراخ مستمر.
-            </p>
-
-            <p class="story-block-title">أين كان الخلل؟</p>
-            <p>اللعبة مصنّفة +16، وتحتوي على إطلاق نار مستمر ومشاهد عنف واقعي نسبيًا.</p>
-
-            <p class="story-block-title">النتيجة:</p>
-            <p>انخفاض في التركيز الدراسي وتوتر في علاقته مع إخوته وأصدقائه.</p>
-
-            <p class="story-block-title">كيف نتجنب ذلك؟</p>
-            <p>الالتزام بالتصنيف العمري، وتدرّج الطفل في نوع الألعاب، وعدم السماح له بالألعاب الواقعية قبل النضج الكافي.</p>
-        </article>
-
-        <!-- قصة 3 -->
-        <article class="story-card">
-            <div class="story-title">كوابيس متكررة بسبب فيلم رعب</div>
-            <div class="story-tag">عمر الطفلة: 8 سنوات • تصنيف الفيلم: +15</div>
-
-            <p class="story-block-title">ماذا حدث؟</p>
-            <p>
-                شاهدت طفلة فيلم رعب مع أبناء عمومتها، وبعدها بدأت تعاني من خوف من الظلام،
-                وصعوبة في النوم دون وجود أحد بجانبها.
-            </p>
-
-            <p class="story-block-title">أين كان الخلل؟</p>
-            <p>الفيلم مصنّف +15 ويحتوي على مشاهد مفاجئة ومخيفة لا تناسب عمرها.</p>
-
-            <p class="story-block-title">النتيجة:</p>
-            <p>اضطراب في النوم، وتعلّق زائد بالأهل داخل المنزل.</p>
-
-            <p class="story-block-title">كيف نتجنب ذلك؟</p>
-            <p>توضيح للطفل أن بعض الأفلام “للكبار فقط”، وعدم تشغيل أي فيلم قبل التأكد من التصنيف.</p>
-        </article>
-
+    <div class="story-item">
+        <a class="story-link" href="story-1.html">
+            طفل يقلّد لعبة رعب ويسبّب أذى لنفسه
+        </a>
+        <div class="story-desc">قصة مؤثرة لطفل عمره 9 سنوات شاهد لعبة رعب مصنفة +18...</div>
     </div>
-</main>
+
+    <div class="story-item">
+        <a class="story-link" href="story-2.html">
+            سلوك عدواني بسبب ألعاب العنف
+        </a>
+        <div class="story-desc">كيف أثرت لعبة إطلاق نار على تصرفات طفل بعمر 11 سنة...</div>
+    </div>
+
+    <div class="story-item">
+        <a class="story-link" href="story-3.html">
+            كوابيس متكررة بعد مشاهدة فيلم رعب
+        </a>
+        <div class="story-desc">طفلة عمرها 8 سنوات شاهدت فيلمًا مصنفًا +15 وأثر عليها نفسيًا...</div>
+    </div>
+
+</div>
 
 </body>
 </html>
