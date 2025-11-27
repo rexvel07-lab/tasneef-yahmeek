@@ -2,84 +2,525 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>التصنيف يحميك</title>
+    <title>التصنيف يحميك | اعرف المحتوى المناسب لعمر طفلك</title>
     <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* ======== إعدادات عامة لواجهة الصفحة الرئيسية فقط ======== */
+        body.home {
+            margin: 0;
+            font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f8fb;
+            color: #0b2535;
+        }
+
+        .home-wrapper {
+            width: min(1140px, 92vw);
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ======== شريط التصفح ======== */
+        .home-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: #ffffffee;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e1e7f0;
+        }
+
+        .home-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            padding: 10px 0;
+        }
+
+        .home-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            color: #007eaa;
+            font-size: 20px;
+        }
+
+        .home-logo span {
+            font-size: 22px;
+        }
+
+        .home-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 15px;
+        }
+
+        .home-nav-links a {
+            color: #41556b;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s ease;
+        }
+
+        .home-nav-links a:hover,
+        .home-nav-links a.is-active {
+            color: #007eaa;
+            border-color: #00c896;
+        }
+
+        /* ======== قسم الهيرو ======== */
+        .home-hero {
+            background: linear-gradient(135deg, #00a2d6, #0082b4);
+            color: #ffffff;
+            padding: 42px 0 64px;
+        }
+
+        .home-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(3, 34, 51, 0.25);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .home-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            gap: 40px;
+            align-items: center;
+        }
+
+        .home-hero-title {
+            font-size: clamp(26px, 3vw + 12px, 34px);
+            line-height: 1.5;
+            margin: 0 0 12px;
+            font-weight: 800;
+        }
+
+        .home-hero-title span {
+            color: #ffe18a;
+        }
+
+        .home-hero-text {
+            font-size: 16px;
+            line-height: 1.9;
+            max-width: 520px;
+            margin-bottom: 22px;
+        }
+
+        .home-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-primary,
+        .btn-outline,
+        .btn-ghost {
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: #00c896;
+            border-color: #00c896;
+            color: #053040;
+        }
+
+        .btn-primary:hover {
+            background: #00b184;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: #ffffff;
+            color: #006485;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #e0f7ff;
+            padding-inline: 10px;
+            font-weight: 500;
+        }
+
+        .btn-ghost span {
+            font-size: 18px;
+        }
+
+        /* بطاقة مثال استشارة */
+        .home-example-card {
+            background: #ffffff;
+            color: #123047;
+            border-radius: 18px;
+            padding: 22px 22px 18px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+            max-width: 380px;
+            margin-inline-start: auto;
+        }
+
+        .home-example-label {
+            font-size: 13px;
+            color: #7988a0;
+            margin-bottom: 10px;
+        }
+
+        .home-example-question {
+            background: #f3f7ff;
+            border-radius: 12px;
+            padding: 8px 10px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .home-example-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #e7f4ff;
+            color: #18699e;
+            margin-bottom: 8px;
+        }
+
+        .home-example-rating {
+            font-weight: 800;
+            font-size: 15px;
+            color: #0b4470;
+            margin-bottom: 4px;
+        }
+
+        .home-example-note {
+            font-size: 13px;
+            color: #62728a;
+            line-height: 1.7;
+        }
+
+        /* ======== قسم البطاقات الرئيسية ======== */
+        .home-sections {
+            padding: 36px 0 32px;
+        }
+
+        .home-section-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .home-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 20px 20px 18px;
+            box-shadow: 0 8px 22px rgba(6, 34, 59, 0.05);
+            border: 1px solid #e2e8f1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .home-card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: #e7f6ff;
+            color: #0e6a97;
+        }
+
+        .home-card-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .home-card-text {
+            font-size: 14px;
+            line-height: 1.9;
+            color: #4b5c73;
+        }
+
+        .home-card-link {
+            margin-top: auto;
+            font-size: 14px;
+            color: #007eaa;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .home-card-link span {
+            font-size: 16px;
+        }
+
+        /* ======== عن الحملة ======== */
+        .home-about {
+            padding: 8px 0 48px;
+        }
+
+        .home-about-box {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #dde5f0;
+            padding: 24px 22px 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .home-about-title {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #0f3d63;
+        }
+
+        .home-about-title span {
+            font-size: 18px;
+            color: #00c896;
+        }
+
+        .home-about-text {
+            font-size: 14px;
+            line-height: 1.9;
+            color: #4b5c73;
+            margin-bottom: 8px;
+        }
+
+        .home-about-list {
+            font-size: 14px;
+            line-height: 1.9;
+            color: #4b5c73;
+            padding-right: 18px;
+        }
+
+        .home-about-note {
+            font-size: 12px;
+            color: #8b97aa;
+            margin-top: 10px;
+        }
+
+        /* ======== فوتر بسيط ======== */
+        .home-footer {
+            padding: 14px 0 20px;
+            font-size: 12px;
+            color: #7b8797;
+            text-align: center;
+        }
+
+        /* ======== موبايل ======== */
+        @media (max-width: 900px) {
+            .home-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .home-hero {
+                padding: 30px 0 40px;
+            }
+
+            .home-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 26px;
+            }
+
+            .home-example-card {
+                margin-inline-start: 0;
+            }
+
+            .home-section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+<body class="home">
 
-<body>
+    <!-- ========== الهيدر ========== -->
+    <header class="home-header">
+        <div class="home-wrapper home-nav">
+            <a href="index.html" class="home-logo">
+                <span>🎮</span>
+                <div>التصنيف يحميك</div>
+            </a>
 
-<!-- ============= هيدر الموقع =============== -->
-<header class="main-header">
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">تصنيف الألعاب</a></li>
-            <li><a href="#">تصنيف الأفلام</a></li>
-            <li><a href="#">أداة التحقق</a></li>
-            <li><a href="#">دليل الوالدين</a></li>
-            <li><a href="#">المدونة</a></li>
-            <li><a href="#">القصص الواقعية</a></li>
-            <li><a href="#" class="highlight">شات التصنيف الذكي</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- ============= الهيرو (بعد حذف المربع) =============== -->
-<section class="hero">
-    <div class="container">
-        <h1 class="hero-title">
-            اعرف المحتوى المناسب لعمر طفلك… قبل ما تسمح له يشاهده أو يلعبه.
-        </h1>
-
-        <p class="hero-subtitle">
-            نساعدك تفهم التصنيف العمري للألعاب والأفلام والمحتوى الرقمي بلغة بسيطة،  
-            علشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#" class="btn-main">تحقق من تصنيف لعبة / فيلم ✔️</a>
-            <a href="#" class="btn-outline">تعرّف على رموز التصنيف 🔍</a>
+            <nav class="home-nav-links">
+                <a href="index.html" class="is-active">الرئيسية</a>
+                <a href="games.html">تصنيف الألعاب</a>
+                <a href="movies.html">تصنيف الأفلام</a>
+                <a href="check.html">أداة التحقق</a>
+                <a href="parents.html">دليل الوالدين</a>
+                <a href="blog.html">المدونة</a>
+                <!-- عدلي الروابط حسب أسماء ملفاتك -->
+                <a href="stories.html">القصص الواقعية</a>
+                <a href="chat.html">شات التصنيف الذكي</a>
+            </nav>
         </div>
-    </div>
-</section>
+    </header>
 
-<!-- ============= البطاقات الثلاث تحت الهيرو =============== -->
-<section class="section-cards">
-    <div class="container row">
+    <main class="home-main">
+        <!-- ========== قسم الهيرو ========== -->
+        <section class="home-hero">
+            <div class="home-wrapper">
+                <div class="home-hero-badge">
+                    <span>📢</span> منصة توعوية – ليست جهة رسمية
+                </div>
 
-        <!-- بطاقة 1 -->
-        <div class="card">
-            <h3>قصص حقيقية وشات ذكي</h3>
-            <p>
-                اقرأ قصص واقعية من أهالي واجهوا مواقف مشابهة،  
-                واستخدم شات التصنيف الذكي للحصول على إجابة مخصصة لعائلتك.
-            </p>
-            <a href="#" class="card-link">→ الذهاب إلى القصص والشات</a>
-        </div>
+                <div class="home-hero-grid">
+                    <!-- نص اليمين -->
+                    <div>
+                        <h1 class="home-hero-title">
+                            اعرف المحتوى المناسب لعمر طفلك...
+                            <span>قبل ما تسمح له يشاهده أو يلعبه.</span>
+                        </h1>
+                        <p class="home-hero-text">
+                            نساعدك تفهم التصنيف العمري للألعاب، والأفلام، والمحتوى الرقمي
+                            بلغة بسيطة، عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
+                        </p>
 
-        <!-- بطاقة 2 -->
-        <div class="card">
-            <h3>فهم الرموز والفئات العمرية</h3>
-            <p>
-                صفحات تصنيف الألعاب والأفلام تشرح لك معنى (+3، 7+، Teen...).  
-                مع أمثلة مبسطة تساعدك تقرّب لك معنى كل فئة.
-            </p>
-            <a href="#" class="card-link">→ استكشاف تصنيف الألعاب والأفلام</a>
-        </div>
+                        <div class="home-hero-actions">
+                            <a href="check.html" class="btn-primary">
+                                ✅ تحقّق من تصنيف لعبة / فيلم
+                            </a>
+                            <a href="games.html" class="btn-outline">
+                                🎯 تعرّف على رموز التصنيف
+                            </a>
+                            <a href="chat.html" class="btn-ghost">
+                                <span>💬</span> اسأل شات التصنيف الذكي
+                            </a>
+                        </div>
+                    </div>
 
-        <!-- بطاقة 3 -->
-        <div class="card">
-            <h3>تحقّق من التصنيف في ثواني</h3>
-            <p>
-                أدخل اسم اللعبة أو الفيلم في أداة التحقق،  
-                وخذ إجابة مختصرة عن التصنيف والمحتوى البارز قبل ما تسمح لابنك بالمشاهدة أو اللعب.
-            </p>
-            <a href="#" class="card-link">→ الانتقال إلى أداة التحقق</a>
-        </div>
+                    <!-- بطاقة مثال استشارة -->
+                    <aside class="home-example-card">
+                        <div class="home-example-label">
+                            مثال على استشارة في شات التصنيف الذكي:
+                        </div>
+                        <div class="home-example-question">
+                            "فورتنايت تناسب ابني عمره ٩ سنوات؟"
+                        </div>
+                        <div class="home-example-tag">
+                            <span>🔍</span> تصنيف علمي إرشادي
+                        </div>
+                        <div class="home-example-rating">
+                            PEGI 12 / ESRB Teen
+                        </div>
+                        <p class="home-example-note">
+                            غالبًا يُنصح أن يكون اللاعب أكبر من ١٢ سنة، بسبب وجود عنف
+                            متوسط وإطلاق نار وتفاعل مع لاعبين آخرين. تقدري تبحثي عن بدائل
+                            بتصنيف أقل تناسب عمر طفلك وقيم عائلتك.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </section>
 
-    </div>
-</section>
+        <!-- ========== البطاقات الرئيسية ========== -->
+        <section class="home-sections">
+            <div class="home-wrapper home-section-grid">
+                <!-- بطاقة القصص -->
+                <article class="home-card">
+                    <div class="home-card-icon">📚</div>
+                    <h2 class="home-card-title">قصص حقيقية وشات ذكي</h2>
+                    <p class="home-card-text">
+                        اقرأ مواقف واقعية من أهالي واجهوا محتوى غير مناسب، وشوفي كيف ساعدهم
+                        شات التصنيف الذكي على اتخاذ قرار يناسب أطفالهم.
+                    </p>
+                    <a href="stories.html" class="home-card-link">
+                        الذهاب إلى القصص والشات <span>↗</span>
+                    </a>
+                </article>
 
+                <!-- بطاقة فهم الرموز -->
+                <article class="home-card">
+                    <div class="home-card-icon">🎮</div>
+                    <h2 class="home-card-title">فهم الرموز والفئات العمرية</h2>
+                    <p class="home-card-text">
+                        صفحات تصنيف الألعاب والأفلام تشرح لك معنى (+3، +7، +12، Teen،
+                        +16...) مع أمثلة مبسّطة تساعدك تفرّق بين كل فئة وتعرف مستوى المحتوى.
+                    </p>
+                    <a href="games.html" class="home-card-link">
+                        استكشاف تصنيف الألعاب والأفلام <span>↗</span>
+                    </a>
+                </article>
+
+                <!-- بطاقة أداة التحقق -->
+                <article class="home-card">
+                    <div class="home-card-icon">✅</div>
+                    <h2 class="home-card-title">تحقّق من التصنيف في ثواني</h2>
+                    <p class="home-card-text">
+                        أدخل اسم اللعبة أو الفيلم في أداة التحقق، وخذ ملخّص سريع عن التصنيف
+                        والمحتوى البارز قبل ما تسمح لطفلك يشاهده أو يلعبه.
+                    </p>
+                    <a href="check.html" class="home-card-link">
+                        الانتقال إلى أداة التحقق <span>↗</span>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========== عن حملة التصنيف يحميك ========== -->
+        <section class="home-about">
+            <div class="home-wrapper">
+                <div class="home-about-box">
+                    <h2 class="home-about-title">
+                        <span>🛡️</span> عن حملة «التصنيف يحميك»
+                    </h2>
+                    <p class="home-about-text">
+                        «التصنيف يحميك» مبادرة توعوية شخصية لمساعدة الأهالي، والمربين،
+                        والمهتمين على فهم الرموز والفئات العمرية للمحتوى الترفيهي،
+                        خصوصًا الألعاب الإلكترونية والأفلام والمسلسلات، بطريقة قريبة من
+                        الواقع السعودي وسهلة الفهم.
+                    </p>
+                    <ul class="home-about-list">
+                        <li><strong>هدف الحملة:</strong> جعل قرار السماح بالمشاهدة أو اللعب
+                            قرار واعٍ، مبني على فهم التصنيف وليس على اسم اللعبة أو شهرتها.</li>
+                        <li><strong>لمن؟</strong> للأهالي، المربين، المرشدين الطلابيين،
+                            وكل من يهتم بسلامة الأطفال رقميًا.</li>
+                        <li><strong>كيف أستخدم الموقع؟</strong> ابدأ من الصفحة الرئيسية، ثم
+                            جرّب أداة التحقق، وصفحات التصنيف، والقصص الواقعية، وشات الذكاء
+                            الاصطناعي اللي يعطيك إجابات مخصّصة لحالتك.</li>
+                    </ul>
+                    <p class="home-about-note">
+                        * الموقع ليس جهة رسمية ولا يصدر تصنيفات جديدة، لكنه يستند قدر
+                        الإمكان إلى أنظمة التصنيف المعروفة محليًا وعالميًا مثل GCAM، PEGI،
+                        ESRB، ويعرضها بلغة مبسّطة للأهالي.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        © 2025 التصنيف يحميك – نسخة تجريبية توعوية.
+    </footer>
 </body>
 </html>
