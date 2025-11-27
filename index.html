@@ -17,9 +17,13 @@
         .site-header {
             background: #ffffff;
             border-bottom: 1px solid #e5edf5;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
         .nav-container {
-            max-width: 1100px;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 10px 18px;
             display: flex;
@@ -41,93 +45,220 @@
             color: #008bb8;
         }
 
-        /* البانر البسيط */
+        /* الهيرو */
         .hero-home {
-            background: #00a3cc;
+            background: linear-gradient(135deg, #00a3cc, #0082b3);
             color: #ffffff;
-            padding: 42px 18px 48px;
-            text-align: center;
+            padding: 46px 18px 56px;
         }
-        .hero-home-inner {
-            max-width: 900px;
+        .hero-inner {
+            max-width: 1120px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+            gap: 34px;
+            align-items: center;
         }
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.16);
             border-radius: 999px;
             padding: 4px 12px;
             font-size: 12px;
         }
         .hero-title {
             margin-top: 18px;
-            font-size: 26px;
+            font-size: 28px;
             line-height: 1.9;
             font-weight: 800;
         }
         .hero-subtitle {
-            margin-top: 12px;
+            margin-top: 10px;
             font-size: 16px;
-            line-height: 1.8;
-            max-width: 650px;
-            margin-inline: auto;
+            line-height: 1.9;
+            max-width: 520px;
+        }
+        .hero-actions {
+            margin-top: 22px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-primary,
+        .btn-secondary {
+            border-radius: 999px;
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-primary {
+            background: #ffffff;
+            color: #0079a1;
+            font-weight: 700;
+        }
+        .btn-primary:hover {
+            background: #f1f5f9;
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0f7ff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.16);
         }
 
-        /* قسم تعريف الحملة */
+        /* كرت المثال */
+        .hero-example-card {
+            background: #ffffff;
+            color: #1f2933;
+            border-radius: 20px;
+            padding: 20px 20px 18px;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+            border: 1px solid #e1eaf3;
+        }
+        .hero-example-label {
+            font-size: 11px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        .hero-example-question {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .hero-example-tag {
+            display: inline-block;
+            background: #e6f4ff;
+            color: #006b8f;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+        .hero-example-rating {
+            font-size: 13px;
+            font-weight: 700;
+            color: #008bb8;
+            margin-bottom: 6px;
+        }
+        .hero-example-text {
+            font-size: 12px;
+            line-height: 1.9;
+            color: #4b5563;
+        }
+
+        /* كروت الأقسام الرئيسية */
+        .home-features {
+            max-width: 1120px;
+            margin: 28px auto 10px;
+            padding: 0 18px;
+        }
+        .home-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+        .feature-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 18px 18px 16px;
+            border: 1px solid #e4ecf3;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+        }
+        .feature-icon {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+        .feature-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #0f172a;
+        }
+        .feature-text {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 10px;
+        }
+        .feature-link {
+            font-size: 13px;
+            color: #008bb8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .feature-link:hover {
+            text-decoration: underline;
+        }
+
+        /* تعريف مختصر في الأسفل */
         .about-section {
             max-width: 900px;
-            margin: 32px auto 40px;
+            margin: 26px auto 40px;
             padding: 0 18px;
         }
         .about-card {
             background: #ffffff;
             border-radius: 18px;
-            padding: 24px 22px 20px;
+            padding: 20px 22px 18px;
             border: 1px solid #e5edf5;
             box-shadow: 0 8px 18px rgba(0,0,0,0.04);
         }
         .about-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 800;
             color: #008bb8;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             border-right: 4px solid #008bb8;
             padding-right: 8px;
         }
         .about-text {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.9;
             color: #34495e;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
-        .about-list {
-            font-size: 14px;
-            line-height: 1.9;
-            color: #34495e;
-            margin: 8px 0 0;
-            padding-right: 18px;
-        }
-        .about-list li {
-            margin-bottom: 4px;
+        .about-note {
+            font-size: 11px;
+            color: #7f8c8d;
+            margin-top: 6px;
         }
 
-        .about-note {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #7f8c8d;
+        @media (max-width: 880px) {
+            .hero-inner {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero-example-card {
+                max-width: 360px;
+                margin: 10px auto 0;
+            }
+            .home-features-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
         }
 
         @media (max-width: 600px) {
             .hero-title {
-                font-size: 22px;
+                font-size: 23px;
             }
             .hero-subtitle {
                 font-size: 14px;
             }
-            .about-card {
-                padding: 18px 16px;
+            .nav-menu {
+                display: none; /* لو حبيتي بعدين نسوي منيو للجوال */
             }
         }
     </style>
@@ -143,7 +274,7 @@
                 <a href="index.html">الرئيسية</a>
                 <a href="games.html">تصنيف الألعاب</a>
                 <a href="movies.html">تصنيف الأفلام</a>
-                <a href="check-rating.html">أداة التحقق</a>
+                <a href="check.html">أداة التحقق</a>
                 <a href="parents.html">دليل الوالدين</a>
                 <a href="blog.html">المدونة</a>
                 <a href="stories.html">القصص الواقعية</a>
@@ -152,55 +283,107 @@
         </div>
     </header>
 
-    <!-- البانر: الجملة اللي حددتيها فقط -->
+    <!-- الهيرو -->
     <section class="hero-home">
-        <div class="hero-home-inner">
+        <div class="hero-inner">
+            <!-- النص -->
+            <div>
+                <div class="hero-badge">
+                    🎮 منصة توعوية • ليست جهة رسمية
+                </div>
 
-            <div class="hero-badge">
-                🎮 منصة توعوية • ليست جهة رسمية
+                <h1 class="hero-title">
+                    اعرف المحتوى المناسب لعمر طفلك… قبل ما تسمح له يشاهده أو يلعبه.
+                </h1>
+
+                <p class="hero-subtitle">
+                    نساعدك تفهم التصنيف العمري للألعاب والأفلام والمحتوى الرقمي بلغة بسيطة،
+                    عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="check.html" class="btn-primary">
+                        ✅ تحقّق من تصنيف لعبة / فيلم
+                    </a>
+                    <a href="games.html" class="btn-secondary">
+                        🔍 تعرّف على رموز التصنيف
+                    </a>
+                </div>
             </div>
 
-            <h1 class="hero-title">
-                اعرف المحتوى المناسب لعمر طفلك… قبل ما تسمح له يشاهده أو يلعبه.
-            </h1>
+            <!-- كرت المثال -->
+            <div class="hero-example-card">
+                <div class="hero-example-label">مثال على استشارة في شات التصنيف الذكي:</div>
+                <div class="hero-example-question">
+                    “فورتنايت تناسب ابني عمره ٩ سنوات؟”
+                </div>
+                <div class="hero-example-tag">تصنيف علمي إرشادي</div>
+                <div class="hero-example-rating">PEGI 12 / ESRB Teen</div>
+                <p class="hero-example-text">
+                    غالبًا يُنصح أن يكون اللاعب أكبر من ١٢ سنة بسبب وجود عنف متوسط
+                    وإطلاق نار وتفاعل مع لاعبين آخرين.  
+                    لو حابة بدائل أنسب لعمر طفلك تقدرين تستخدمين أداة التحقق أو تقترحين
+                    على الشات ألعاب مشابهة لكن بتصنيف أقل.
+                </p>
+            </div>
+        </div>
+    </section>
 
-            <p class="hero-subtitle">
-                نساعدك تفهم التصنيف العمري للألعاب والأفلام والمحتوى الرقمي بلغة بسيطة،
-                عشان تكون قراراتك أوضح وأقرب لقيم عائلتك.
-            </p>
+    <!-- الأقسام الرئيسية -->
+    <section class="home-features">
+        <div class="home-features-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">تحقّق من التصنيف في ثواني</div>
+                <p class="feature-text">
+                    أدخل اسم اللعبة أو الفيلم في أداة التحقق، وخذي إجابة مختصرة عن
+                    التصنيف والمحتوى البارز قبل ما تسمحين بالمشاهدة أو اللعب.
+                </p>
+                <a href="check.html" class="feature-link">الانتقال إلى أداة التحقق →</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <div class="feature-title">فهم الرموز والفئات العمرية</div>
+                <p class="feature-text">
+                    صفحات تصنيف الألعاب والأفلام تشرح لك معنى الرموز (+3، +7، Teen…)
+                    مع أمثلة مبسّطة تساعدك تفرّق بين كل فئة وأخرى.
+                </p>
+                <a href="games.html" class="feature-link">استكشاف تصنيف الألعاب والأفلام →</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <div class="feature-title">قصص حقيقية وشات ذكي</div>
+                <p class="feature-text">
+                    اقرأ قصص واقعية من أهالٍ واجهوا مواقف مشابهة، واستخدمي شات
+                    التصنيف الذكي للحصول على إجابة مخصّصة لحالتك.
+                </p>
+                <a href="stories.html" class="feature-link">الذهاب إلى القصص والشات →</a>
+            </div>
 
         </div>
     </section>
 
-    <!-- تعريف الحملة والهدف منها -->
+    <!-- تعريف مختصر بالحملة -->
     <section class="about-section">
         <div class="about-card">
             <h2 class="about-title">عن حملة «التصنيف يحميك»</h2>
-
             <p class="about-text">
-                «التصنيف يحميك» مبادرة توعوية شخصية تهدف لمساعدة الأهالي والمهتمين
-                على فهم الرموز والفئات العمرية للمحتوى الترفيهي، خصوصًا الألعاب
-                الإلكترونية والأفلام والمسلسلات، بطريقة قريبة من الواقع السعودي
-                وسهلة الفهم.
+                «التصنيف يحميك» مبادرة توعوية شخصية تساعد الأهالي والمربين على فهم
+                التصنيف العمري للمحتوى الترفيهي بطريقة قريبة من الواقع السعودي
+                وسهلة التطبيق في البيت.
             </p>
-
             <p class="about-text">
-                كثير من الآباء يشوفون رمز +7 أو +16 أو «Teen» بدون ما يعرفون بالضبط
-                ماذا يعني، أو أي نوع محتوى مسموح داخل هذه الفئة. الموقع يجمع هذه
-                المعلومات في مكان واحد، ويقدّم أمثلة وشروحات مبسّطة تساعدك تتخذ
-                قرار يناسب عمر طفلك وحساسيته وقيم عائلتك.
+                الفكرة بسيطة: قبل أي مشاهدة أو تنزيل لعبة، نوقف لحظة، نطالع
+                التصنيف، ونفهم وش ممكن يواجهه الطفل داخل هذا المحتوى، ثم نقرر
+                إذا كان مناسب لعمره وحساسيته وقيم الأسرة أو لا.
             </p>
-
-            <ul class="about-list">
-                <li><strong>هدف الحملة:</strong> جعل التصنيف العمري أداة يومية لاتخاذ قرار واعٍ قبل مشاهدة أي محتوى أو تحميل أي لعبة.</li>
-                <li><strong>لمن؟</strong> للأهالي، المربين، المهتمين بالألعاب، وأي شخص يحب يتأكد أن المحتوى مناسب قبل مشاركته مع الأطفال أو المراهقين.</li>
-                <li><strong>كيف أستخدم الموقع؟</strong> صفحات التصنيف، القصص الواقعية، المدونة، وشات الذكاء الاصطناعي تساعدك تفهم الحالة اللي عندك وتاخذ قرارك بهدوء.</li>
-            </ul>
-
             <p class="about-note">
                 الحملة ليست جهة رسمية ولا تصدر تصنيفات بديلة، لكنها تستند إلى
-                الأنظمة والجهات المعروفة عالميًا ومحليًا مثل GCAM، PEGI، ESRB،
-                وتعرضها بلغة قريبة من الأسرة العربية.
+                الأنظمة والجهات المعروفة عالميًا ومحليًا مثل GCAM وPEGI وESRB،
+                وتعرضها بلغة مفهومة للأسرة العربية.
             </p>
         </div>
     </section>
